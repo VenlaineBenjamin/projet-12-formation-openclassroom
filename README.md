@@ -18,7 +18,6 @@ Projet 12 de ma formation d'intégrateur web sur OpenClassroom, qui a pour but d
 -   **JavaScript** : Interactivité et dynamisme.
 -   **Tailwind CSS** (si utilisé) : Framework CSS pour un design rapide et responsive.
 -   **React** : Bibliothèque JavaScript pour construire des interfaces utilisateur.
--   **Redux** : Gestion d'état prévisible pour l'application.
 -   **React Router** : Gestion de la navigation entre les différentes pages de l'application.
 
 ## Installation
