@@ -2,28 +2,18 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+import enTranslation from "./locales/en.json";
+import frTranslation from "./locales/fr.json";
+
 i18n.use(initReactI18next).init({
     resources: {
-        fr: {
-            translation: {
-                // Ajoute ici tes traductions en français
-                welcome: "Bienvenue sur le portfolio de Benjamin Verlaine",
-                about: "À propos",
-                // Ajoute d'autres traductions au besoin
-            },
-        },
-        en: {
-            translation: {
-                welcome: "Welcome to my portfolio of Benjamin Verlaine",
-                about: "About",
-                // Ajoute d'autres traductions au besoin
-            },
-        },
+        fr: { translation: frTranslation },
+        en: { translation: enTranslation },
     },
-    lng: "fr", // langue par défaut
-    fallbackLng: "fr", // langue de repli
+    lng: "fr", // Langue par défau
+    fallbackLng: "en", // Langue de repli
     interpolation: {
-        escapeValue: false, // React échappe déjà les valeurs
+        escapeValue: false, // React gère déjà l'échappement des valeurs
     },
 });
 

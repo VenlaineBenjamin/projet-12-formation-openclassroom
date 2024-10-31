@@ -1,7 +1,22 @@
 export default {
     content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                primary: "#ADD8E6",
+                secondary: "#40E0D0",
+                link: "#000080",
+                complementary: "#FF7F50",
+            },
+            fontFamily: {
+                body: ["Roboto Flex", "sans-serif"],
+                title: ["Raleway", "sans-serif"],
+                nav: ["Open Sans", "sans-serif"],
+            },
+        },
     },
-    plugins: [],
+    daisyui: {
+        themes: ["light"],
+    },
+    plugins: [require("daisyui")],
 };
