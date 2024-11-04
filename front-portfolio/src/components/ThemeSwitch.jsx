@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export default function ThemeSwitch() {
+    const { t } = useTranslation();
     return (
         <div>
             <label className="swap swap-rotate" aria-label="theme-switch">
@@ -6,6 +9,7 @@ export default function ThemeSwitch() {
                     type="checkbox"
                     className="theme-controller"
                     value="night"
+                    title={t("dark-mode")}
                 />
                 <svg
                     className="w-10 h-10 fill-white swap-off"

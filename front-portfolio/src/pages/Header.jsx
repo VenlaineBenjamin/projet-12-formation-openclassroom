@@ -20,12 +20,9 @@ export default function Header() {
                     </h2>
                 </div>
             </div>
-            <Link
-                className="self-center mr-8 font-nav btn btn-accent"
-                to="/about"
-            >
-                {t("menu-prestation")}
-            </Link>
+            <nav className="self-center mr-8 font-nav btn btn-primary">
+                <Link to="/about">{t("menu-prestation")}</Link>
+            </nav>
         </header>
     );
 }

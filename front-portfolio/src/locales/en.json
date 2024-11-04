@@ -3,5 +3,9 @@
     "welcome": "Welcome to my portfolio",
     "menu-prestation": "Presentation",
     "fr": "French",
-    "presentation": "I am an experienced front-end developer specializing in designing and developing modern, high-performance user interfaces. Throughout my career, I've had the opportunity to collaborate with diverse teams on ambitious projects. I have a deep mastery of the React ecosystem and am a dedicated user of Tailwind CSS. By combining creativity and technical rigor, I am able to develop web applications that meet the needs of your users. Feel free to contact me to discuss your project."
+    "info-linkedin": "my linkedin",
+    "info-github": "my github",
+    "info-blog": "my blog",
+    "dark-mode": "dark mode",
+    "presentation": "I am a passionate junior front-end developer with experience in creating modern and dynamic user interfaces. Through my projects, I have collaborated with teams to develop engaging web solutions. I have skills in React and Tailwind CSS, and I am continually deepening my knowledge to enhance my abilities. With a blend of creativity and attention to detail, I am motivated to design web applications that meet user needs. Feel free to reach out to discuss your project!"
 }

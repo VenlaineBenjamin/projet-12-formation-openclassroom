@@ -4,7 +4,7 @@ import Header from "./Header";
 
 export default function Home() {
     return (
-        <div className="flex flex-col min-h-screen border">
+        <div className="flex flex-col min-h-screen border focus:outline">
             <div className="h-24 bg-primary xl:h-32">
                 <Header />
             </div>

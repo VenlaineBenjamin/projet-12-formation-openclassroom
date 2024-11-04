@@ -5,8 +5,8 @@ export default function About() {
     const { t } = useTranslation();
 
     return (
-        <main className="flex flex-col items-center justify-center gap-8 mt-10 xl:mt-20">
-            <h2 className="text-xl font-bold xl:text-3xl text-start font-title text-complementary">
+        <main className="flex flex-col items-center justify-center gap-4 xl:gap-8 xl:mt-20">
+            <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
                 {t("welcome")}
             </h2>
             <p className="flex flex-row w-3/4 text-center xl:text-2xl text-md font-body">
