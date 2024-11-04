@@ -1,5 +1,7 @@
 {
+    "title": "Web developer | front-end",
     "welcome": "Welcome to my portfolio",
-    "change_language_text": "Change the site language to : ",
-    "fr": "French"
+    "menu-prestation": "Presentation",
+    "fr": "French",
+    "presentation": "I am an experienced front-end developer specializing in designing and developing modern, high-performance user interfaces. Throughout my career, I've had the opportunity to collaborate with diverse teams on ambitious projects. I have a deep mastery of the React ecosystem and am a dedicated user of Tailwind CSS. By combining creativity and technical rigor, I am able to develop web applications that meet the needs of your users. Feel free to contact me to discuss your project."
 }

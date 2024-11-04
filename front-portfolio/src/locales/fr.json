@@ -1,5 +1,7 @@
 {
+    "title": "Développeur web | front-end",
     "welcome": "Bienvenue sur mon portfolio",
-    "change_language_text": "Changer la langue du site en : ",
-    "en": "Anglais"
+    "menu-prestation": "Présentation",
+    "en": "Anglais",
+    "presentation": "Je suis un développeur front-end expérimenté, spécialisé dans la conception et le développement d'interfaces utilisateur modernes et performantes. Mon parcours m'a permis de collaborer avec diverses équipes pour mener à bien des projets ambitieux. Je maîtrise parfaitement l'écosystème React et suis un fervent utilisateur de Tailwind CSS. En alliant créativité et rigueur technique, je suis en mesure de développer des applications web qui répondent aux attentes de vos utilisateurs. N'hésitez pas à me contacter pour échanger sur votre projet."
 }

@@ -1,17 +1,19 @@
-import { useTranslation } from "react-i18next";
-import { FaReact } from "react-icons/fa";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import { Outlet } from "react-router-dom";
+import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Home() {
-    const { t } = useTranslation();
     return (
-        <main>
-            <h1 className="font-bold capitalize text-9xl bg-complementary font-title">
-                benjamin Verlaine
-            </h1>
-            <h2 className="text-5xl font-title">{t("welcome")}</h2>
-            <FaReact className="text-9xl text-secondary" />
-            <LanguageSwitcher />
-        </main>
+        <div className="flex flex-col min-h-screen border">
+            <div className="h-24 bg-primary xl:h-32">
+                <Header />
+            </div>
+            <div className="flex-grow">
+                <Outlet />
+            </div>
+            <div className="h-24 bg-slate-700 xl:h-32">
+                <Footer />
+            </div>
+        </div>
     );
 }
