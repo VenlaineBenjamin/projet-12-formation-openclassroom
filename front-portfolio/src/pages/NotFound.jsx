@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function About() {
     const { t } = useTranslation();
@@ -7,17 +7,14 @@ export default function About() {
     return (
         <main className="flex flex-col items-center justify-center gap-4 xl:gap-8 xl:mt-20">
             <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
-                {t("welcome")}
+                {t("error-code")}
             </h2>
             <p className="flex flex-row w-5/6 text-center xl:w-3/4 xl:text-2xl text-md font-body">
-                <span className="text-xl xl:text-3xl">
-                    <FaQuoteLeft className="animate-pulse" />
-                </span>
-                {t("presentation")}
-                <span className="self-end text-xl xl:text-3xl">
-                    <FaQuoteRight className="animate-pulse" />
-                </span>
+                {t("error-message")}
             </p>
+            <Link to="/" className="mt-6 btn btn-primary">
+                {t("error-button")}
+            </Link>
         </main>
     );
 }

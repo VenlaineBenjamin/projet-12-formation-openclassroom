@@ -6,34 +6,47 @@ import ThemeSwitch from "../components/ThemeSwitch";
 export default function Footer() {
     const { t } = useTranslation();
     return (
-        <footer className="flex justify-between h-full px-8">
-            <nav className="flex flex-row items-center justify-center flex-grow gap-8">
-                <a
-                    href="https://www.linkedin.com/in/benjamin-verlaine-bb3314255/"
-                    target="_blank"
-                    title={t("info-linkedin")}
-                    className="flex items-center justify-center text-2xl xl:text-5xl h-10 w-10 xl:h-20 xl:w-20 bg-primary text-[#0A66C2]"
-                >
-                    <FaLinkedin />
-                </a>
-                <a
-                    href="https://github.com/VenlaineBenjamin"
-                    target="_blank"
-                    title={t("info-github")}
-                    className="flex items-center justify-center text-2xl xl:text-5xl h-10 w-10 xl:h-20 xl:w-20 bg-primary text-[#010409]"
-                >
-                    <FaGithubSquare />
-                </a>
-                <a
-                    href="https://dev.to/venlainebenjamin"
-                    target="_blank"
-                    title={t("info-blog")}
-                    className="flex items-center justify-center w-10 h-10 text-2xl text-black xl:text-5xl xl:h-20 xl:w-20 bg-primary"
-                >
-                    <FaDev />
-                </a>
+        <footer className="flex justify-between h-full px-2 xl:px-4">
+            <nav className="flex flex-col items-center justify-center xl:flex-row">
+                <h2 className="flex items-center font-bold text-md xl:text-4xl text-complementary font-title">
+                    {t("find-me")}
+                </h2>
+                <div className="flex gap-1 ml-0 xl:ml-4 xl:gap-8">
+                    {[
+                        {
+                            href: "https://www.linkedin.com/in/benjamin-verlaine-bb3314255/",
+                            title: t("info-linkedin"),
+                            icon: <FaLinkedin />,
+                            color: "text-[#0A66C2]",
+                        },
+                        {
+                            href: "https://github.com/VenlaineBenjamin",
+                            title: t("info-github"),
+                            icon: <FaGithubSquare />,
+                            color: "text-[#010409]",
+                        },
+                        {
+                            href: "https://dev.to/venlainebenjamin",
+                            title: t("info-blog"),
+                            icon: <FaDev />,
+                            color: "text-black",
+                        },
+                    ].map((link, index) => (
+                        <a
+                            key={index}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={link.title}
+                            className={`tooltip flex items-center justify-center h-10 w-10 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded shadow-inner bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
+                            data-tip={link.title}
+                        >
+                            {link.icon}
+                        </a>
+                    ))}
+                </div>
             </nav>
-            <div className="flex flex-col items-center justify-center xl:flex-row xl:gap-4">
+            <div className="flex flex-col items-center justify-center gap-2 xl:flex-row xl:gap-4">
                 <LanguageSwitcher />
                 <ThemeSwitch />
             </div>

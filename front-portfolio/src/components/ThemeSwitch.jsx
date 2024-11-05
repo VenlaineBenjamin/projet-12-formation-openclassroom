@@ -12,7 +12,7 @@ export default function ThemeSwitch() {
                     title={t("dark-mode")}
                 />
                 <svg
-                    className="w-10 h-10 fill-white swap-off"
+                    className="w-10 h-10 fill-complementary swap-off"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                 >

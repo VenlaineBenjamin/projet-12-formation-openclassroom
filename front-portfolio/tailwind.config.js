@@ -1,3 +1,6 @@
+import daisyui from "daisyui";
+import tailwindcssAnimate from "tailwindcss-animate";
+
 export default {
     content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
@@ -18,5 +21,5 @@ export default {
     daisyui: {
         themes: ["corporate", "night"],
     },
-    plugins: [require("daisyui")],
+    plugins: [daisyui, tailwindcssAnimate], // Utilise les plugins importés
 };

@@ -1,11 +1,20 @@
 {
     "title": "Développeur web | front-end",
     "welcome": "Bienvenue sur mon portfolio",
+    "welcome-project": "retrouver ici mes anciens projet",
+    "welcome-skills": "retrouvez ici mes différents compétence",
     "menu-prestation": "Présentation",
+    "menu-project": "Projets",
+    "menu-skills": "compétence",
     "en": "Anglais",
     "info-linkedin": "mon linkedin",
     "info-github": "mon github",
     "info-blog": "mon blog",
     "dark-mode": "mode sombre",
-    "presentation": "Je suis un développeur front-end junior passionné, avec une expérience en création d'interfaces utilisateur modernes et dynamiques. Au cours de mes projets, j’ai collaboré avec des équipes pour développer des solutions web engageantes. J'ai des compétences en React et en Tailwind CSS, et je continue d'approfondir mes connaissances pour perfectionner mes capacités. Avec un mélange de créativité et de souci du détail, je suis motivé à concevoir des applications web qui répondent aux besoins des utilisateurs. N'hésitez pas à me contacter pour discuter de votre projet !"
+    "presentation": "Je suis un développeur front-end junior passionné, avec une expérience en création d'interfaces utilisateur modernes et dynamiques. Au cours de mes projets, j’ai collaboré avec des équipes pour développer des solutions web engageantes. J'ai des compétences en React et en Tailwind CSS, et je continue d'approfondir mes connaissances pour perfectionner mes capacités. Avec un mélange de créativité et de souci du détail, je suis motivé à concevoir des applications web qui répondent aux besoins des utilisateurs. N'hésitez pas à me contacter pour discuter de votre projet !",
+    "find-me": "retrouvez moi sur :",
+    "change-langue": "changer la langue",
+    "error-code": "404 - Page non trouvée",
+    "error-message": "Oups ! Il semble que vous soyez tombé sur une page qui n'existe pas. L'URL que vous avez saisie pourrait être incorrecte, ou la page a peut-être été déplacée. Vous pouvez retourner à notre page d'accueil pour continuer votre visite ou utiliser le menu pour explorer les sections disponibles.",
+    "error-button": "Retourner à l'accueil"
 }
