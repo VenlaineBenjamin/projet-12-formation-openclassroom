@@ -33,21 +33,21 @@ export default function BurgerMenu() {
                 )}
             </div>
 
-            {/* Full-screen sidebar for mobile view */}
+            {/* Full-screen sidebar for mobile view with opacity transition */}
             <div
-                className={`fixed top-0 right-0 left-0 bottom-8 h-screen w-full z-50 bg-white transition-opacity duration-300 ${
+                className={`fixed inset-0 h-screen w-full z-50 lg:hidden bg-white bg-opacity-50 backdrop-blur transition-opacity duration-300 ease-in-out ${
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-                } lg:hidden`}
+                }`}
             >
-                {/* Close button inside the sidebar */}
-                <div className="absolute top-8 right-8">
-                    <IoMdClose
-                        size={36}
-                        onClick={toggleMenu}
-                        className="cursor-pointer"
-                    />
-                </div>
-                <nav className="flex flex-col items-center justify-center h-screen gap-4 font-nav">
+                {/* Menu content */}
+                <div className="relative flex flex-col items-center justify-center h-full gap-4 font-nav">
+                    <div className="absolute top-8 right-8">
+                        <IoMdClose
+                            size={36}
+                            onClick={toggleMenu}
+                            className="cursor-pointer"
+                        />
+                    </div>
                     <NavLink
                         to="/about"
                         className={navLinkClass}
@@ -76,7 +76,7 @@ export default function BurgerMenu() {
                     >
                         {t("menu-contact")}
                     </NavLink>
-                </nav>
+                </div>
             </div>
 
             {/* Standard navigation for larger screens */}

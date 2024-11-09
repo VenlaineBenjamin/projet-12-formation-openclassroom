@@ -38,7 +38,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             title={link.title}
-                            className={`tooltip flex items-center justify-center h-14 w-14 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded shadow-inner bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
+                            className={`tooltip flex items-center justify-center h-14 w-14 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
                             data-tip={link.title}
                         >
                             {link.icon}
