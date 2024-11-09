@@ -1,4 +1,6 @@
 {
+    "alt-photo-about": "me at the lakeside",
+    "my-name": "Benjamin Verlaine",
     "title": "Web developer | front-end",
     "welcome": "Welcome to my portfolio",
     "welcome-project": "find my old projects here",
@@ -6,6 +8,7 @@
     "menu-prestation": "Presentation",
     "menu-project": "Projects",
     "menu-skills": "Skills",
+    "menu-contact": "Contacts",
     "fr": "French",
     "info-linkedin": "my linkedin",
     "info-github": "my github",
@@ -13,8 +16,12 @@
     "dark-mode": "dark mode",
     "presentation": "I am a passionate junior front-end developer with experience in creating modern and dynamic user interfaces. Through my projects, I have collaborated with teams to develop engaging web solutions. I have skills in React and Tailwind CSS, and I am continually deepening my knowledge to enhance my abilities. With a blend of creativity and attention to detail, I am motivated to design web applications that meet user needs. Feel free to reach out to discuss your project!",
     "find-me": "find me on :",
-    "change-langue": "change language",
+    "change-langue": "Change language to French",
     "error-code": "404 - Page not found",
     "error-message": "Oops! It looks like you've stumbled upon a page that doesn't exist. The URL you entered may be incorrect, or the page may have moved. You can return to our homepage to continue your visit, or use the menu to explore the available sections.",
-    "error-button": "Return to home"
+    "error-button": "Return to home",
+    "form-title": "Contact me",
+    "form-name": "Your name",
+    "form-email": "Your email",
+    "form-message": "Your message"
 }

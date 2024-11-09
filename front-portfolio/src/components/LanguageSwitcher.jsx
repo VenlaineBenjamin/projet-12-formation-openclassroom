@@ -7,28 +7,33 @@ const LanguageSwitcher = () => {
         i18n.changeLanguage(lng);
     };
 
+    const renderButton = (lang, tooltip, imageUrl) => (
+        <div className="tooltip" data-tip={tooltip}>
+            <button
+                onClick={() => changeLanguage(lang)}
+                aria-label={tooltip}
+                className="text-sm bg-center bg-cover xl:text-xl w-28 h-14 xl:btn-lg btn font-body text-complementary"
+                style={{ backgroundImage: `url(${imageUrl})` }}
+            >
+                {t(lang)}
+            </button>
+        </div>
+    );
+
     return (
         <>
-            {i18n.language !== "fr" && (
-                <div className="tooltip" data-tip={t("change-langue")}>
-                    <button
-                        onClick={() => changeLanguage("fr")}
-                        className="text-xs btn-xs xl:btn-lg btn btn-primary font-body xl:text-md"
-                    >
-                        {t("fr")}
-                    </button>
-                </div>
-            )}
-            {i18n.language !== "en" && (
-                <div className="tooltip" data-tip={t("change-langue")}>
-                    <button
-                        onClick={() => changeLanguage("en")}
-                        className="text-xs btn-xs xl:btn-lg btn btn-primary font-body xl:text-md"
-                    >
-                        {t("en")}
-                    </button>
-                </div>
-            )}
+            {i18n.language !== "fr" &&
+                renderButton(
+                    "fr",
+                    t("change-langue"),
+                    "../../src/images/Flag_of_France.svg"
+                )}
+            {i18n.language !== "en" &&
+                renderButton(
+                    "en",
+                    t("change-langue"),
+                    "../../src/images/Flag_of_the_United_Kingdom.svg"
+                )}
         </>
     );
 };

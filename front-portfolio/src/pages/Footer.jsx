@@ -6,12 +6,12 @@ import ThemeSwitch from "../components/ThemeSwitch";
 export default function Footer() {
     const { t } = useTranslation();
     return (
-        <footer className="flex justify-between h-full px-2 xl:px-4">
+        <footer className="relative flex justify-between h-full px-2 xl:px-4">
             <nav className="flex flex-col items-center justify-center xl:flex-row">
-                <h2 className="flex items-center font-bold text-md xl:text-4xl text-complementary font-title">
+                <h2 className="items-center hidden font-bold text-left lg:flex text-md xl:text-4xl text-complementary font-title">
                     {t("find-me")}
                 </h2>
-                <div className="flex gap-1 ml-0 xl:ml-4 xl:gap-8">
+                <div className="flex gap-2 ml-0 xl:ml-4 xl:gap-8">
                     {[
                         {
                             href: "https://www.linkedin.com/in/benjamin-verlaine-bb3314255/",
@@ -38,7 +38,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             title={link.title}
-                            className={`tooltip flex items-center justify-center h-10 w-10 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded shadow-inner bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
+                            className={`tooltip flex items-center justify-center h-14 w-14 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded shadow-inner bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
                             data-tip={link.title}
                         >
                             {link.icon}
@@ -46,7 +46,7 @@ export default function Footer() {
                     ))}
                 </div>
             </nav>
-            <div className="flex flex-col items-center justify-center gap-2 xl:flex-row xl:gap-4">
+            <div className="flex flex-row items-center justify-center gap-2 xl:gap-4">
                 <LanguageSwitcher />
                 <ThemeSwitch />
             </div>

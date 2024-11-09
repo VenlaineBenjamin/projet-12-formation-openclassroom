@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Project from "./pages/Project";
 import Skills from "./pages/Skills";
-import Contact from "./pages/Constact";
+import Contact from "./pages/Contact";
 
 export default function App() {
     return (

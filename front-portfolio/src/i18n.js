@@ -10,7 +10,7 @@ i18n.use(initReactI18next).init({
         fr: { translation: frTranslation },
         en: { translation: enTranslation },
     },
-    lng: "fr", // Langue par défau
+    lng: "en", // Langue par défau
     fallbackLng: "en", // Langue de repli
     interpolation: {
         escapeValue: false, // React gère déjà l'échappement des valeurs
