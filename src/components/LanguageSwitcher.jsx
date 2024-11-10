@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import flagFrance from "../images/Ensign_of_France.webp";
+import flagUK from "../images/Flag_of_the_United_Kingdom.webp";
 
 const LanguageSwitcher = () => {
     const { t, i18n } = useTranslation();
@@ -23,17 +25,9 @@ const LanguageSwitcher = () => {
     return (
         <>
             {i18n.language !== "fr" &&
-                renderButton(
-                    "fr",
-                    t("change-langue"),
-                    "../../src/images/Flag_of_France.svg"
-                )}
+                renderButton("fr", t("change-langue"), flagFrance)}
             {i18n.language !== "en" &&
-                renderButton(
-                    "en",
-                    t("change-langue"),
-                    "../../src/images/Flag_of_the_United_Kingdom.svg"
-                )}
+                renderButton("en", t("change-langue"), flagUK)}
         </>
     );
 };

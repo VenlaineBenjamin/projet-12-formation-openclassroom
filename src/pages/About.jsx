@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import myPhoto from "../images/moi-au-bord-du-lac.webp";
 
 export default function About() {
     const { t } = useTranslation();
@@ -10,7 +11,7 @@ export default function About() {
                 {t("welcome")}
             </h2>
             <img
-                src="../../src/images/moi-au-bord-du-lac.webp"
+                src={myPhoto}
                 alt={t("alt-photo-about")}
                 className="object-cover rounded shadow-md w-36 h-36 xl:h-72 xl:w-72"
             />

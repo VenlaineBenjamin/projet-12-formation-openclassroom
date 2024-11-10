@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import BurgerMenu from "../components/BurgerMenu";
+import myImage from "../images/ma-photo1.webp";
 
 export default function Header() {
     const { t } = useTranslation();
@@ -9,7 +10,7 @@ export default function Header() {
         <header className="flex justify-between drop-shadow-lg">
             <Link to="/about" className="flex">
                 <img
-                    src="../../src/images/ma-photo1.webp"
+                    src={myImage}
                     alt="photo de benjamin verlaine"
                     className="h-24 xl:h-32"
                 />
