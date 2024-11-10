@@ -8,6 +8,7 @@ export default function About() {
             <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
                 {t("welcome-project")}
             </h2>
+            <div className="grid gap-4"></div>
         </main>
     );
 }

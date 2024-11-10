@@ -68,12 +68,11 @@ export default function BurgerMenu() {
                     </NavLink>
                     {/* New PDF download button */}
                     <a
-                        href="../../public/C.V. verlaine benjamin verlaine développeur web (1).pdf"
+                        href="../../public/C.V. verlaine benjamin verlaine développeur web.pdf"
                         download="cv-benjamin-verlaine"
-                        className="w-1/3 text-center btn btn-neutral hover:bg-complementary/25"
-                        onClick={toggleMenu}
+                        className="flex flex-row items-center justify-center w-1/3 gap-2 text-center btn btn-neutral hover:bg-complementary/25"
                     >
-                        curriculum vitae
+                        Curriculum Vitae
                     </a>
                 </div>
             </div>
@@ -91,9 +90,9 @@ export default function BurgerMenu() {
                 <a
                     href="../../public/C.V. verlaine benjamin verlaine développeur web (1).pdf"
                     download="cv-benjamin-verlaine"
-                    className="w-1/3 text-center btn btn-neutral hover:bg-complementary/25"
+                    className="flex items-center justify-center w-1/3 text-center btn btn-neutral hover:bg-complementary/25"
                 >
-                    curriculum vitae
+                    Curriculum Vitae
                 </a>
             </nav>
         </div>
