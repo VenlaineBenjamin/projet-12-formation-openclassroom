@@ -21,7 +21,6 @@ export default function BurgerMenu() {
 
     return (
         <div className="my-auto">
-            {/* Icon for mobile menu toggle */}
             <div className="lg:hidden" onClick={toggleMenu}>
                 {isOpen ? (
                     ""
@@ -33,13 +32,11 @@ export default function BurgerMenu() {
                 )}
             </div>
 
-            {/* Full-screen sidebar for mobile view with opacity transition */}
             <div
                 className={`fixed inset-0 h-screen w-full z-50 lg:hidden bg-white bg-opacity-50 backdrop-blur transition-opacity duration-300 ease-in-out ${
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 }`}
             >
-                {/* Menu content */}
                 <div className="relative flex flex-col items-center justify-center h-full gap-4 font-nav">
                     <div className="absolute top-8 right-8">
                         <IoMdClose
@@ -48,13 +45,6 @@ export default function BurgerMenu() {
                             className="cursor-pointer"
                         />
                     </div>
-                    <NavLink
-                        to="/about"
-                        className={navLinkClass}
-                        onClick={toggleMenu}
-                    >
-                        {t("menu-prestation")}
-                    </NavLink>
                     <NavLink
                         to="/project"
                         className={navLinkClass}
@@ -76,14 +66,19 @@ export default function BurgerMenu() {
                     >
                         {t("menu-contact")}
                     </NavLink>
+                    {/* New PDF download button */}
+                    <a
+                        href="../../public/C.V. verlaine benjamin verlaine développeur web (1).pdf"
+                        download="cv-benjamin-verlaine"
+                        className="w-1/3 text-center btn btn-neutral hover:bg-complementary/25"
+                        onClick={toggleMenu}
+                    >
+                        curriculum vitae
+                    </a>
                 </div>
             </div>
 
-            {/* Standard navigation for larger screens */}
             <nav className="justify-end hidden gap-4 mr-4 xl:flex font-nav">
-                <NavLink to="/about" className={navLinkClass}>
-                    {t("menu-prestation")}
-                </NavLink>
                 <NavLink to="/project" className={navLinkClass}>
                     {t("menu-project")}
                 </NavLink>
@@ -93,6 +88,13 @@ export default function BurgerMenu() {
                 <NavLink to="/contact" className={navLinkClass}>
                     {t("menu-contact")}
                 </NavLink>
+                <a
+                    href="../../public/C.V. verlaine benjamin verlaine développeur web (1).pdf"
+                    download="cv-benjamin-verlaine"
+                    className="w-1/3 text-center btn btn-neutral hover:bg-complementary/25"
+                >
+                    curriculum vitae
+                </a>
             </nav>
         </div>
     );
