@@ -22,5 +22,9 @@
     "form-title": "Contactez-moi",
     "form-name": "Votre nom",
     "form-email": "Votre email",
-    "form-message": "Votre message"
+    "form-message": "Votre message",
+    "card-booki": "page d'accueil d'une agence de voyage.",
+    "card-kasa": "Application web de location immobilière.",
+    "card-nina": "Site web vitrine d'une photographe.",
+    "card-food": "Application web de reservation de menu."
 }

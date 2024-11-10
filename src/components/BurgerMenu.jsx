@@ -9,7 +9,7 @@ export default function BurgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinkClass = ({ isActive }) =>
-        `btn btn-neutral w-1/3 text-center ${
+        `btn btn-neutral uppercase w-1/3  text-center ${
             isActive
                 ? "bg-complementary font-bold hover:bg-complementary"
                 : "hover:bg-complementary/25"
@@ -68,9 +68,9 @@ export default function BurgerMenu() {
                     </NavLink>
                     {/* New PDF download button */}
                     <a
-                        href="../../public/C.V. verlaine benjamin verlaine développeur web.pdf"
+                        href="../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf"
                         download="cv-benjamin-verlaine"
-                        className="flex flex-row items-center justify-center w-1/3 gap-2 text-center btn btn-neutral hover:bg-complementary/25"
+                        className="flex flex-row items-center justify-center w-1/3 gap-2 text-center uppercase btn btn-neutral hover:bg-complementary/25"
                     >
                         Curriculum Vitae
                     </a>
@@ -88,9 +88,9 @@ export default function BurgerMenu() {
                     {t("menu-contact")}
                 </NavLink>
                 <a
-                    href="../../public/C.V. verlaine benjamin verlaine développeur web (1).pdf"
+                    href="../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf"
                     download="cv-benjamin-verlaine"
-                    className="flex items-center justify-center w-1/3 text-center btn btn-neutral hover:bg-complementary/25"
+                    className="flex items-center justify-center w-1/3 text-center uppercase btn btn-neutral hover:bg-complementary/25"
                 >
                     Curriculum Vitae
                 </a>

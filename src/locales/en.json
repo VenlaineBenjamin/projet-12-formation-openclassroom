@@ -22,5 +22,9 @@
     "form-title": "Contact me",
     "form-name": "Your name",
     "form-email": "Your email",
-    "form-message": "Your message"
+    "form-message": "Your message",
+    "card-booki": "homepage of a travel agency.",
+    "card-kasa": "Real estate rental web application.",
+    "card-nina": "A photographer's showcase website.",
+    "card-food": "Web application for menu reservation."
 }
