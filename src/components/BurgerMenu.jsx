@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+import pdfCV from "../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf";
 
 export default function BurgerMenu() {
     const { t } = useTranslation();
@@ -68,7 +69,7 @@ export default function BurgerMenu() {
                     </NavLink>
                     {/* New PDF download button */}
                     <a
-                        href="../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf"
+                        href={pdfCV}
                         download="cv-benjamin-verlaine"
                         className="flex flex-row items-center justify-center w-1/3 gap-2 text-center uppercase btn btn-neutral hover:bg-complementary/25"
                     >
@@ -88,7 +89,7 @@ export default function BurgerMenu() {
                     {t("menu-contact")}
                 </NavLink>
                 <a
-                    href="../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf"
+                    href={pdfCV}
                     download="cv-benjamin-verlaine"
                     className="flex items-center justify-center w-1/3 text-center uppercase btn btn-neutral hover:bg-complementary/25"
                 >

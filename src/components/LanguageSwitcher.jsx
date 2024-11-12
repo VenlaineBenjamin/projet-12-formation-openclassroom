@@ -10,7 +10,7 @@ const LanguageSwitcher = () => {
     };
 
     const renderButton = (lang, tooltip, imageUrl) => (
-        <div className="tooltip" data-tip={tooltip}>
+        <div className="z-10 tooltip" data-tip={tooltip}>
             <button
                 onClick={() => changeLanguage(lang)}
                 aria-label={tooltip}
