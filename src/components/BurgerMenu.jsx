@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
@@ -10,7 +10,7 @@ export default function BurgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinkClass = ({ isActive }) =>
-        `btn btn-neutral uppercase w-1/3  text-center ${
+        `btn btn-neutral uppercase w-1/3 text-center ${
             isActive
                 ? "bg-complementary font-bold hover:bg-complementary"
                 : "hover:bg-complementary/25"
@@ -19,6 +19,20 @@ export default function BurgerMenu() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    // Désactive le défilement lorsque le menu est ouvert
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        // Nettoyage de l'effet lorsque le composant est démonté ou que le menu est fermé
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [isOpen]);
 
     return (
         <div className="my-auto">
@@ -38,7 +52,7 @@ export default function BurgerMenu() {
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 }`}
             >
-                <div className="relative flex flex-col items-center justify-center h-full gap-4 font-nav">
+                <div className="relative flex flex-col items-center justify-center h-full gap-4 font-nav z-60">
                     <div className="absolute top-8 right-8">
                         <IoMdClose
                             size={36}

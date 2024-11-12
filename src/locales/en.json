@@ -26,5 +26,9 @@
     "card-booki": "homepage of a travel agency.",
     "card-kasa": "Real estate rental web application.",
     "card-nina": "A photographer's showcase website.",
-    "card-food": "Web application for menu reservation."
+    "card-food": "Web application for menu reservation.",
+    "module-booki": "The Booki website allows you to find accommodations for your vacations, with a simple interface to search for hotels and hostels in Marseille, categorized by type and price. It also offers popular activities in the region, such as visits to the Old Port and the Calanques National Park. Users can filter results based on criteria such as 'budget', 'family', or 'romantic'. Additional information on how the site works, terms and conditions, and privacy policy is also available.",
+    "module-kasa": "Kasa offers modern apartments for rent, with a simple and intuitive interface to explore available options. Users can view detailed information about each property, such as photos, descriptions, and amenities. The site also includes a booking system and a space for customer reviews. Users can filter results by location and features.",
+    "module-nina": "The Nina Carducci website showcases the work of a photographer passionate about capturing emotions and precious moments through photography. She offers photo shooting services, retouching, and creation of custom albums. The portfolio highlights a variety of styles, ranging from portraits to wedding photos. Users can easily contact the photographer for quotes or questions via an online form.",
+    "module-food": "The Ohmyfood website allows you to discover and book exceptional restaurants in Paris, particularly in the Belleville neighborhood. The interface offers a selection of carefully chosen restaurants, where users can personalize their menu before enjoying it. The process is simple: choose a restaurant, compose a menu, and enjoy the culinary experience."
 }

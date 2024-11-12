@@ -6,26 +6,40 @@ export default function ProjectCard({
     title,
     description,
     onClick,
+    technologies,
 }) {
+    const technologyColors = {
+        React: "bg-blue-500",
+        JavaScript: "bg-yellow-500",
+        HTML: "bg-red-500",
+        CSS: "bg-blue-300",
+        SASS: "bg-pink-500",
+        Redux: "bg-purple-500",
+    };
+
     return (
         <div
-            onClick={onClick} // Utilisation de onClick passé en prop
-            className="z-auto cursor-pointer shadow-light dark:shadow-whites card bg-base-100"
+            className="p-4 rounded-lg shadow-lg cursor-pointer"
+            onClick={onClick}
         >
-            <figure className="px-2 pt-2 md:px-4 md:pt-4">
-                <img
-                    src={imgSrc}
-                    alt={imgAlt}
-                    className="object-cover w-full h-16 rounded-lg sm:h-32 md:h-48"
-                />
-            </figure>
-            <div className="items-center p-2 text-center card-body">
-                <h2 className="text-sm font-bold font-title sm:text-base md:text-lg card-title">
-                    {title}
-                </h2>
-                <p className="text-xs font-body sm:text-sm md:text-base">
-                    {description}
-                </p>
+            <img
+                src={imgSrc}
+                alt={imgAlt}
+                className="object-cover w-full rounded-t-lg h-52"
+            />
+            <h3 className="mt-2 text-lg font-semibold">{title}</h3>
+            <p className="text-sm text-gray-600">{description}</p>
+            <div className="flex flex-wrap gap-2 mt-2">
+                {technologies.map((tech, index) => (
+                    <span
+                        key={index}
+                        className={`inline-block ${
+                            technologyColors[tech] || "bg-gray-500"
+                        } text-white text-xs font-semibold py-1 px-2 rounded-full shadow-sm`}
+                    >
+                        {tech}
+                    </span>
+                ))}
             </div>
         </div>
     );
@@ -36,5 +50,6 @@ ProjectCard.propTypes = {
     imgAlt: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired, // Ajout de la prop onClick
+    onClick: PropTypes.func.isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "../components/ProjectCard";
 import imgBooki from "../images/Capture-booki.webp";
@@ -9,6 +9,7 @@ import imgOhmyfood from "../images/Capture-ohmyfood.webp";
 export default function Project() {
     const { t } = useTranslation();
     const [selectedProject, setSelectedProject] = useState(null);
+    const modalRef = useRef(null);
 
     const projects = [
         {
@@ -16,47 +17,59 @@ export default function Project() {
             imgAlt: "Booki",
             title: "Booki",
             description: t("card-booki"),
-            siteUrl: "https://ohmyfood-benjamin-verlaine.netlify.app/",
+            moduleDescription: t("module-booki"),
+            siteUrl: "https://booki-benjamin-verlaine.netlify.app/",
+            technologies: ["CSS", "HTML"],
         },
         {
             imgSrc: imgKasa,
             imgAlt: "Kasa",
             title: "Kasa",
             description: t("card-kasa"),
+            moduleDescription: t("module-kasa"),
             siteUrl: "https://verlaine-benjamin-kasa.netlify.app/",
+            technologies: ["React", "JavaScript", "React Router"],
         },
         {
             imgSrc: imgNina,
             imgAlt: "Nina Carducci",
             title: "Nina Carducci",
             description: t("card-nina"),
+            moduleDescription: t("module-nina"),
             siteUrl: "https://nina-carducci-benjamin-verlaine.netlify.app/",
+            technologies: ["React", "Redux"],
         },
         {
             imgSrc: imgOhmyfood,
             imgAlt: "OhMyFood",
             title: "OhMyFood",
             description: t("card-food"),
+            moduleDescription: t("module-food"),
             siteUrl: "https://ohmyfood-benjamin-verlaine.netlify.app/",
+            technologies: ["HTML", "SASS"],
         },
     ];
 
     const openModal = (project) => {
         setSelectedProject(project);
-        document.getElementById("my_modal_3").showModal();
+        if (modalRef.current) {
+            modalRef.current.showModal();
+        }
     };
 
     const closeModal = () => {
-        document.getElementById("my_modal_3").close();
+        if (modalRef.current) {
+            modalRef.current.close();
+        }
         setSelectedProject(null);
     };
 
     return (
         <main className="flex flex-col items-center justify-center gap-4 mt-10 mb-10 xl:gap-6 xl:mt-16 xl:mb-16">
-            <h2 className="text-lg font-bold xl:text-3xl text-start font-title text-complementary">
+            <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
                 {t("welcome-project")}
             </h2>
-            <div className="grid w-full gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:px-8 ">
+            <div className="grid w-full gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:px-8">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.title}
@@ -65,15 +78,20 @@ export default function Project() {
                         title={project.title}
                         description={project.description}
                         onClick={() => openModal(project)}
+                        technologies={project.technologies}
                     />
                 ))}
             </div>
             <dialog
-                id="my_modal_3"
+                ref={modalRef}
+                id="project_modal"
                 className="fixed inset-0 p-0 m-0 modal"
                 onClick={closeModal}
             >
-                <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+                <div
+                    className="modal-box max-h-[80vh] overflow-y-auto"
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <form method="dialog">
                         <button
                             className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
@@ -88,20 +106,25 @@ export default function Project() {
                                 {selectedProject.title}
                             </h3>
                             <div className="border mockup-browser bg-base-300">
-                                <div className="mockup-browser-toolbar">
-                                    <div className="input">
-                                        {selectedProject.siteUrl}
+                                <a
+                                    href={selectedProject.siteUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <div className="mockup-browser-toolbar">
+                                        <div className="input">
+                                            {selectedProject.siteUrl}
+                                        </div>
                                     </div>
-                                </div>
-                                <img
-                                    src={selectedProject.imgSrc}
-                                    alt={selectedProject.imgAlt}
-                                    className="w-full h-auto mb-4 rounded"
-                                />
+                                    <img
+                                        src={selectedProject.imgSrc}
+                                        alt={selectedProject.imgAlt}
+                                        className="w-full h-auto mb-4 rounded"
+                                    />
+                                </a>
                             </div>
-
                             <p className="py-4">
-                                {selectedProject.description}
+                                {selectedProject.moduleDescription}
                             </p>
                         </>
                     )}

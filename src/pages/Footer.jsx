@@ -6,7 +6,7 @@ import ThemeSwitch from "../components/ThemeSwitch";
 export default function Footer() {
     const { t } = useTranslation();
     return (
-        <footer className="relative flex justify-between h-full px-2 xl:px-4">
+        <footer className="flex justify-between h-full p-2 xl:px-4">
             <nav className="flex flex-col items-center justify-center xl:flex-row">
                 <h2 className="items-center hidden font-bold text-left lg:flex text-md xl:text-4xl text-complementary font-title">
                     {t("find-me")}
@@ -38,7 +38,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             title={link.title}
-                            className={`tooltip flex items-center justify-center h-14 w-14 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
+                            className={`tooltip flex items-center z-10 justify-center h-14 w-14 text-2xl xl:h-20 xl:w-20 xl:text-5xl rounded bg-primary hover:bg-secondary transition-colors duration-300 ${link.color}`}
                             data-tip={link.title}
                         >
                             {link.icon}
