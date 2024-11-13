@@ -9,17 +9,17 @@ export default function ProjectCard({
     technologies,
 }) {
     const technologyColors = {
-        React: "bg-blue-500",
-        JavaScript: "bg-yellow-500",
-        HTML: "bg-red-500",
-        CSS: "bg-blue-300",
-        SASS: "bg-pink-500",
-        Redux: "bg-purple-500",
+        React: "bg-[#61dafb]",
+        JavaScript: "bg-[#f7df1e]",
+        HTML: "bg-[#e34f26]",
+        CSS: "bg-[#264de4]",
+        SASS: "bg-[#cc6699]",
+        Redux: "bg-[#764abc]",
     };
 
     return (
         <div
-            className="p-4 rounded-lg shadow-lg cursor-pointer"
+            className="p-4 transition-transform transform rounded-lg shadow-lg cursor-pointer hover:scale-105"
             onClick={onClick}
         >
             <img
@@ -33,11 +33,11 @@ export default function ProjectCard({
                 {technologies.map((tech, index) => (
                     <span
                         key={index}
-                        className={`inline-block ${
-                            technologyColors[tech] || "bg-gray-500"
+                        className={`inline-flex items-center gap-1 ${
+                            technologyColors[tech.name] || "bg-gray-500"
                         } text-white text-xs font-semibold py-1 px-2 rounded-full shadow-sm`}
                     >
-                        {tech}
+                        {tech.icon} {tech.name}
                     </span>
                 ))}
             </div>
@@ -51,5 +51,10 @@ ProjectCard.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    technologies: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            icon: PropTypes.element.isRequired,
+        })
+    ).isRequired,
 };

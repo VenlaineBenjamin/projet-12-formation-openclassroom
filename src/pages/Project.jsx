@@ -1,5 +1,8 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaCss3Alt, FaHtml5, FaJs, FaReact } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
+import { SiReactrouter, SiRedux, SiSass } from "react-icons/si";
 import ProjectCard from "../components/ProjectCard";
 import imgBooki from "../images/Capture-booki.webp";
 import imgKasa from "../images/Capture-kasa.webp";
@@ -19,7 +22,10 @@ export default function Project() {
             description: t("card-booki"),
             moduleDescription: t("module-booki"),
             siteUrl: "https://booki-benjamin-verlaine.netlify.app/",
-            technologies: ["CSS", "HTML"],
+            technologies: [
+                { name: "CSS", icon: <FaCss3Alt />, color: "#264de4" },
+                { name: "HTML", icon: <FaHtml5 />, color: "#e34f26" },
+            ],
         },
         {
             imgSrc: imgKasa,
@@ -28,7 +34,15 @@ export default function Project() {
             description: t("card-kasa"),
             moduleDescription: t("module-kasa"),
             siteUrl: "https://verlaine-benjamin-kasa.netlify.app/",
-            technologies: ["React", "JavaScript", "React Router"],
+            technologies: [
+                { name: "React", icon: <FaReact />, color: "#61dafb" },
+                { name: "JavaScript", icon: <FaJs />, color: "#f7df1e" },
+                {
+                    name: "React Router",
+                    icon: <SiReactrouter />,
+                    color: "#6B7280",
+                },
+            ],
         },
         {
             imgSrc: imgNina,
@@ -37,7 +51,10 @@ export default function Project() {
             description: t("card-nina"),
             moduleDescription: t("module-nina"),
             siteUrl: "https://nina-carducci-benjamin-verlaine.netlify.app/",
-            technologies: ["React", "Redux"],
+            technologies: [
+                { name: "React", icon: <FaReact />, color: "#61dafb" },
+                { name: "Redux", icon: <SiRedux />, color: "#764abc" },
+            ],
         },
         {
             imgSrc: imgOhmyfood,
@@ -46,7 +63,10 @@ export default function Project() {
             description: t("card-food"),
             moduleDescription: t("module-food"),
             siteUrl: "https://ohmyfood-benjamin-verlaine.netlify.app/",
-            technologies: ["HTML", "SASS"],
+            technologies: [
+                { name: "HTML", icon: <FaHtml5 />, color: "#e34f26" },
+                { name: "SASS", icon: <SiSass />, color: "#cc6699" },
+            ],
         },
     ];
 
@@ -105,27 +125,43 @@ export default function Project() {
                             <h3 className="text-lg font-bold">
                                 {selectedProject.title}
                             </h3>
-                            <div className="border mockup-browser bg-base-300">
-                                <a
-                                    href={selectedProject.siteUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <div className="mockup-browser-toolbar">
-                                        <div className="input">
-                                            {selectedProject.siteUrl}
-                                        </div>
-                                    </div>
-                                    <img
-                                        src={selectedProject.imgSrc}
-                                        alt={selectedProject.imgAlt}
-                                        className="w-full h-auto mb-4 rounded"
-                                    />
-                                </a>
-                            </div>
+                            <a
+                                href={selectedProject.siteUrl}
+                                className="relative group"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span className="absolute inset-0 transition-opacity duration-300 rounded opacity-0 bg-slate-900 group-hover:opacity-50"></span>
+                                <span className="absolute inset-0 flex items-center justify-center font-bold text-white transition-opacity duration-300 opacity-0 font-nav group-hover:opacity-100">
+                                    {t("module-link")} <FiExternalLink />
+                                </span>
+                                <img
+                                    src={selectedProject.imgSrc}
+                                    alt={selectedProject.imgAlt}
+                                    className="w-full h-auto rounded"
+                                />
+                            </a>
                             <p className="py-4">
                                 {selectedProject.moduleDescription}
                             </p>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {selectedProject.technologies.map(
+                                    (tech, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex flex-col items-center"
+                                            style={{ color: tech.color }}
+                                        >
+                                            <div className="text-4xl">
+                                                {tech.icon}
+                                            </div>
+                                            <span className="text-sm font-semibold">
+                                                {tech.name}
+                                            </span>
+                                        </div>
+                                    )
+                                )}
+                            </div>
                         </>
                     )}
                 </div>

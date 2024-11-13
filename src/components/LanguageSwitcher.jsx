@@ -14,7 +14,7 @@ const LanguageSwitcher = () => {
             <button
                 onClick={() => changeLanguage(lang)}
                 aria-label={tooltip}
-                className="text-sm bg-center bg-cover xl:text-xl w-28 h-14 xl:btn-lg btn font-body text-complementary"
+                className="w-24 h-10 text-sm bg-center bg-cover xl:text-xl xl:btn-lg btn font-body text-complementary"
                 style={{ backgroundImage: `url(${imageUrl})` }}
             >
                 {t(lang)}

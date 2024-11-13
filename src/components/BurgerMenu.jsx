@@ -49,7 +49,9 @@ export default function BurgerMenu() {
 
             <div
                 className={`fixed inset-0 h-screen w-full z-50 lg:hidden bg-white bg-opacity-50 backdrop-blur transition-opacity duration-300 ease-in-out ${
-                    isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+                    isOpen
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
                 }`}
             >
                 <div className="relative flex flex-col items-center justify-center h-full gap-4 font-nav z-60">
@@ -81,7 +83,6 @@ export default function BurgerMenu() {
                     >
                         {t("menu-contact")}
                     </NavLink>
-                    {/* New PDF download button */}
                     <a
                         href={pdfCV}
                         download="cv-benjamin-verlaine"
