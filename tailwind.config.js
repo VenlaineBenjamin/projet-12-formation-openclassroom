@@ -23,7 +23,7 @@ export default {
         },
     },
     daisyui: {
-        themes: ["corporate", "night"],
+        themes: ["corporate", "synthwave"],
     },
     plugins: [daisyui, tailwindcssAnimate], // Utilise les plugins importés
 };

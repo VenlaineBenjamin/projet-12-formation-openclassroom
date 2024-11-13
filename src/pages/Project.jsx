@@ -23,8 +23,8 @@ export default function Project() {
             moduleDescription: t("module-booki"),
             siteUrl: "https://booki-benjamin-verlaine.netlify.app/",
             technologies: [
-                { name: "CSS", icon: <FaCss3Alt />, color: "#264de4" },
-                { name: "HTML", icon: <FaHtml5 />, color: "#e34f26" },
+                { name: "CSS", icon: <FaCss3Alt />, color: "#2545DB" },
+                { name: "HTML", icon: <FaHtml5 />, color: "#EC622C" },
             ],
         },
         {
@@ -35,8 +35,8 @@ export default function Project() {
             moduleDescription: t("module-kasa"),
             siteUrl: "https://verlaine-benjamin-kasa.netlify.app/",
             technologies: [
-                { name: "React", icon: <FaReact />, color: "#61dafb" },
-                { name: "JavaScript", icon: <FaJs />, color: "#f7df1e" },
+                { name: "React", icon: <FaReact />, color: "#66DBFB" },
+                { name: "JavaScript", icon: <FaJs />, color: "#F7E025" },
                 {
                     name: "React Router",
                     icon: <SiReactrouter />,
@@ -52,8 +52,8 @@ export default function Project() {
             moduleDescription: t("module-nina"),
             siteUrl: "https://nina-carducci-benjamin-verlaine.netlify.app/",
             technologies: [
-                { name: "React", icon: <FaReact />, color: "#61dafb" },
-                { name: "Redux", icon: <SiRedux />, color: "#764abc" },
+                { name: "React", icon: <FaReact />, color: "#66DBFB" },
+                { name: "Redux", icon: <SiRedux />, color: "#7A50BF" },
             ],
         },
         {
@@ -64,8 +64,8 @@ export default function Project() {
             moduleDescription: t("module-food"),
             siteUrl: "https://ohmyfood-benjamin-verlaine.netlify.app/",
             technologies: [
-                { name: "HTML", icon: <FaHtml5 />, color: "#e34f26" },
-                { name: "SASS", icon: <SiSass />, color: "#cc6699" },
+                { name: "HTML", icon: <FaHtml5 />, color: "#EC622C" },
+                { name: "SASS", icon: <SiSass />, color: "#D2679E" },
             ],
         },
     ];
@@ -105,11 +105,11 @@ export default function Project() {
             <dialog
                 ref={modalRef}
                 id="project_modal"
-                className="fixed inset-0 p-0 m-0 modal"
+                className="fixed w-screen modal"
                 onClick={closeModal}
             >
                 <div
-                    className="modal-box max-h-[80vh] overflow-y-auto"
+                    className="modal-box max-h-[50vh] overflow-y-auto"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <form method="dialog">

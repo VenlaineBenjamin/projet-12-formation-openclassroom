@@ -8,7 +8,7 @@ export default function ThemeSwitch() {
                 <input
                     type="checkbox"
                     className="theme-controller"
-                    value="night"
+                    value="synthwave"
                     title={t("dark-mode")}
                 />
                 <svg

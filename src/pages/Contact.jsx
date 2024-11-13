@@ -79,7 +79,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full input input-bordered"
+                        className="w-full border border-black input input-bordered"
                     />
                 </div>
                 <div className="mb-4 form-control">
@@ -95,7 +95,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full input input-bordered"
+                        className="w-full border border-black input input-bordered"
                     />
                 </div>
                 <div className="mb-4 form-control">
@@ -110,7 +110,7 @@ export default function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className="w-full resize-y textarea textarea-bordered"
+                        className="w-full border border-black resize-y textarea textarea-bordered"
                     ></textarea>
                 </div>
                 <button
