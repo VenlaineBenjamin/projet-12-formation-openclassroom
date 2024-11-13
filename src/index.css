@@ -9,3 +9,15 @@
 ::before {
     border-style: none;
 }
+
+.modal {
+    z-index: 50; /* Ajustez ce niveau selon vos besoins */
+}
+
+header {
+    z-index: 100;
+}
+
+.no-scroll {
+    overflow: hidden;
+}

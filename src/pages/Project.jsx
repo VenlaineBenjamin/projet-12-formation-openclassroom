@@ -72,12 +72,15 @@ export default function Project() {
 
     const openModal = (project) => {
         setSelectedProject(project);
+        document.body.classList.add("no-scroll"); // Désactive le scroll
         if (modalRef.current) {
             modalRef.current.showModal();
+            modalRef.current.scrollIntoView({ behavior: "smooth" });
         }
     };
 
     const closeModal = () => {
+        document.body.classList.remove("no-scroll"); // Réactive le scroll
         if (modalRef.current) {
             modalRef.current.close();
         }
@@ -97,7 +100,7 @@ export default function Project() {
                         imgAlt={project.imgAlt}
                         title={project.title}
                         description={project.description}
-                        onClick={() => openModal(project)}
+                        onClick={() => openModal(project)} // Pas besoin de passer l'événement
                         technologies={project.technologies}
                     />
                 ))}
@@ -109,11 +112,12 @@ export default function Project() {
                 onClick={closeModal}
             >
                 <div
-                    className="modal-box max-h-[50vh] overflow-y-auto"
+                    className="modal-box max-h-[80vh] overflow-y-auto"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <form method="dialog">
                         <button
+                            type="button" // Spécifie que ce bouton n’est pas un bouton de soumission
                             className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
                             onClick={closeModal}
                         >

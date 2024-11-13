@@ -19,10 +19,31 @@ export default function BurgerMenu() {
         document.getElementById("my_modal_3").close();
     };
 
+    const navLinks = [
+        { path: "/project", label: t("menu-project") },
+        { path: "/skills", label: t("menu-skills") },
+        { path: "/contact", label: t("menu-contact") },
+    ];
+
     // Désactive le défilement lorsque la modale est ouverte
     useEffect(() => {
+        const modal = document.getElementById("my_modal_3");
+
+        const handleOpen = () => {
+            document.body.style.overflow = "hidden";
+        };
+
+        const handleClose = () => {
+            document.body.style.overflow = "auto";
+        };
+
+        modal?.addEventListener("show", handleOpen);
+        modal?.addEventListener("close", handleClose);
+
         return () => {
             document.body.style.overflow = "auto";
+            modal?.removeEventListener("show", handleOpen);
+            modal?.removeEventListener("close", handleClose);
         };
     }, []);
 
@@ -43,12 +64,9 @@ export default function BurgerMenu() {
             {/* Modale */}
             <dialog
                 id="my_modal_3"
-                className="modal"
+                className="modal z-0s"
                 onClick={(e) => {
-                    // Vérifie si l'élément cliqué est bien en dehors de la modale
-                    if (e.target === e.currentTarget) {
-                        handleModalClose(); // Appel de la fonction handleModalClose
-                    }
+                    if (e.target === e.currentTarget) handleModalClose();
                 }}
             >
                 <div className="flex flex-col items-center justify-center modal-box">
@@ -64,33 +82,18 @@ export default function BurgerMenu() {
                             ✕
                         </button>
                         {/* Liens du menu avec l'effet isActive */}
-                        <NavLink
-                            to="/project"
-                            className={({ isActive }) =>
-                                `${navLinkClass({ isActive })} w-64`
-                            } // largeur définie à 16rem (256px)
-                            onClick={handleModalClose} // Ferme la modale après le clic
-                        >
-                            {t("menu-project")}
-                        </NavLink>
-                        <NavLink
-                            to="/skills"
-                            className={({ isActive }) =>
-                                `${navLinkClass({ isActive })} w-64`
-                            } // largeur définie à 16rem (256px)
-                            onClick={handleModalClose} // Ferme la modale après le clic
-                        >
-                            {t("menu-skills")}
-                        </NavLink>
-                        <NavLink
-                            to="/contact"
-                            className={({ isActive }) =>
-                                `${navLinkClass({ isActive })} w-64`
-                            } // largeur définie à 16rem (256px)
-                            onClick={handleModalClose} // Ferme la modale après le clic
-                        >
-                            {t("menu-contact")}
-                        </NavLink>
+                        {navLinks.map(({ path, label }) => (
+                            <NavLink
+                                key={path}
+                                to={path}
+                                className={({ isActive }) =>
+                                    `${navLinkClass({ isActive })} w-64`
+                                }
+                                onClick={handleModalClose}
+                            >
+                                {label}
+                            </NavLink>
+                        ))}
                         <a
                             href={pdfCV}
                             download="cv-benjamin-verlaine"

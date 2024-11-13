@@ -23,6 +23,15 @@ export default function Contact() {
         setStatusMessage("");
         setIsSuccess(false);
 
+        // Validation du format de l'email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setStatusMessage(t("form-invalid-email"));
+            setIsSuccess(false);
+            setIsSending(false);
+            return;
+        }
+
         try {
             const response = await emailjs.sendForm(
                 "service_amluzkd",
@@ -30,17 +39,13 @@ export default function Contact() {
                 e.target,
                 "iVpu2L8mWJtcBTuZM"
             );
-            console.log("Response:", response); // Vérifiez la réponse ici
-            setStatusMessage("Message envoyé ! Merci de m'avoir contacté.");
+            console.log("Response:", response);
+            setStatusMessage(t("form-message-sent"));
             setIsSuccess(true);
             setFormData({ name: "", email: "", message: "" });
         } catch (error) {
             console.error("Erreur lors de l'envoi :", error);
-            if (error.text) {
-                setStatusMessage(`Erreur : ${error.text}`);
-            } else {
-                setStatusMessage("Erreur lors de l'envoi. Veuillez réessayer.");
-            }
+            setStatusMessage(t("form-message-error"));
             setIsSuccess(false);
         }
         setIsSending(false);
@@ -51,9 +56,8 @@ export default function Contact() {
         if (statusMessage) {
             timeoutId = setTimeout(() => {
                 setStatusMessage("");
-            }, 5000); // 5000 millisecondes = 5 secondes
+            }, 5000);
         }
-
         return () => clearTimeout(timeoutId);
     }, [statusMessage]);
 
@@ -67,50 +71,59 @@ export default function Contact() {
                 className="w-full max-w-lg p-8 rounded-lg xl:shadow-lg bg-base-100"
             >
                 <div className="mb-4 form-control">
-                    <label className="label" htmlFor="name">
-                        <span className="font-bold label-text font-body">
-                            {t("form-name")} :
-                        </span>
+                    <label className="flex items-center gap-2 input input-bordered bg-base-200">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 16 16"
+                            fill="currentColor"
+                            className="w-4 h-4 opacity-70"
+                            aria-label={t("form-icon-name")}
+                        >
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                        </svg>
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className="grow input-bordered"
+                            placeholder={t("form-name")}
+                        />
                     </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full border border-black input input-bordered"
-                    />
                 </div>
                 <div className="mb-4 form-control">
-                    <label className="label" htmlFor="email">
-                        <span className="font-bold label-text font-body">
-                            {t("form-email")} :
-                        </span>
+                    <label className="flex items-center gap-2 input input-bordered bg-base-200">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 16 16"
+                            fill="currentColor"
+                            className="w-4 h-4 opacity-70"
+                            aria-label={t("form-icon-email")}
+                        >
+                            <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                            <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                        </svg>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="grow input-bordered "
+                            placeholder={t("form-email")}
+                        />
                     </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full border border-black input input-bordered"
-                    />
                 </div>
                 <div className="mb-4 form-control">
-                    <label className="label" htmlFor="message">
-                        <span className="font-bold label-text font-body">
-                            {t("form-message")} :
-                        </span>
-                    </label>
                     <textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className="w-full border border-black resize-y textarea textarea-bordered"
+                        className="textarea textarea-bordered bg-base-200"
+                        placeholder={t("form-message")}
                     ></textarea>
                 </div>
                 <button
@@ -118,7 +131,11 @@ export default function Contact() {
                     className="w-full mt-4 btn btn-primary"
                     disabled={isSending}
                 >
-                    {isSending ? "Envoi en cours..." : "Envoyer"}
+                    {isSending ? (
+                        <span className="loader"></span> // Assurez-vous de styliser le loader
+                    ) : (
+                        t("form-submit")
+                    )}
                 </button>
                 {statusMessage && (
                     <p

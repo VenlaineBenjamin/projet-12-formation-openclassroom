@@ -7,7 +7,7 @@ export default function Header() {
     const { t } = useTranslation();
 
     return (
-        <header className="flex justify-between drop-shadow-lg">
+        <header className="flex justify-between drop-shadow-lg z-[100]">
             <Link to="/" className="flex">
                 <img
                     src={myImage}
