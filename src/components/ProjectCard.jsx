@@ -9,12 +9,12 @@ export default function ProjectCard({
     technologies,
 }) {
     const technologyColors = {
-        React: "bg-blue-500",
-        JavaScript: "bg-yellow-500",
-        HTML: "bg-red-500",
-        CSS: "bg-blue-300",
-        SASS: "bg-pink-500",
-        Redux: "bg-purple-500",
+        React: "bg-[#66DBFB]",
+        JavaScript: "bg-[#F7E025]",
+        HTML: "bg-[#EC622C]",
+        CSS: "bg-[#2545DB]",
+        SASS: "bg-[#CC6699]",
+        Redux: "bg-[#764ABC]",
     };
 
     return (

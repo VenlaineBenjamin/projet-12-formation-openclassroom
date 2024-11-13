@@ -132,7 +132,7 @@ export default function Contact() {
                     disabled={isSending}
                 >
                     {isSending ? (
-                        <span className="loader"></span> // Assurez-vous de styliser le loader
+                        <span className="loading loading-bars loading-md"></span> // Assurez-vous de styliser le loader
                     ) : (
                         t("form-submit")
                     )}

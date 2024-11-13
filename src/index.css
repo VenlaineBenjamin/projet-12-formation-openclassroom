@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-::after,
-::before {
-    border-style: none;
-}
-
 .modal {
     z-index: 50; /* Ajustez ce niveau selon vos besoins */
 }
@@ -20,4 +14,14 @@ header {
 
 .no-scroll {
     overflow: hidden;
+}
+
+*,
+::before,
+::after {
+    border: 0px solid transparent; /* Exemple de bordure globale */
+}
+
+#root {
+    border: none; /* Supprime la bordure spécifique au root */
 }
