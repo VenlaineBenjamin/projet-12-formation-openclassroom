@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="flex items-center justify-center bg-black">
                 <p className="text-sm text-gray-200">
                     Benjamin Verlaine - © {new Date().getFullYear()} - version
-                    1.0.1 -{" "}
+                    1.1.0 -{" "}
                     <a
                         className="text-blue-500"
                         target="_blank"

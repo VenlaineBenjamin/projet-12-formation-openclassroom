@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaCss3Alt, FaHtml5, FaJs, FaReact } from "react-icons/fa";
+import { FaCss3Alt, FaGithub, FaHtml5, FaJs, FaReact } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { SiReactrouter, SiRedux, SiSass } from "react-icons/si";
 import ProjectCard from "../components/ProjectCard";
@@ -19,6 +19,7 @@ export default function Project() {
             imgSrc: imgBooki,
             imgAlt: "Booki",
             title: "Booki",
+            githubUrl: "https://github.com/VenlaineBenjamin/Booki",
             description: t("card-booki"),
             moduleDescription: t("module-booki"),
             siteUrl: "https://booki-benjamin-verlaine.netlify.app/",
@@ -31,6 +32,8 @@ export default function Project() {
             imgSrc: imgKasa,
             imgAlt: "Kasa",
             title: "Kasa",
+            githubUrl:
+                "https://github.com/VenlaineBenjamin/projet-7-formation-openclassroom",
             description: t("card-kasa"),
             moduleDescription: t("module-kasa"),
             siteUrl: "https://verlaine-benjamin-kasa.netlify.app/",
@@ -48,6 +51,7 @@ export default function Project() {
             imgSrc: imgNina,
             imgAlt: "Nina Carducci",
             title: "Nina Carducci",
+            githubUrl: "https://github.com/VenlaineBenjamin/project-8",
             description: t("card-nina"),
             moduleDescription: t("module-nina"),
             siteUrl: "https://nina-carducci-benjamin-verlaine.netlify.app/",
@@ -60,6 +64,8 @@ export default function Project() {
             imgSrc: imgOhmyfood,
             imgAlt: "OhMyFood",
             title: "OhMyFood",
+            githubUrl:
+                "https://github.com/VenlaineBenjamin/projet-4-oc-Ohmyfood-",
             description: t("card-food"),
             moduleDescription: t("module-food"),
             siteUrl: "https://ohmyfood-benjamin-verlaine.netlify.app/",
@@ -72,7 +78,7 @@ export default function Project() {
 
     const openModal = (project) => {
         setSelectedProject(project);
-        document.body.classList.add("no-scroll"); // Désactive le scroll
+        document.body.classList.add("no-scroll");
         if (modalRef.current) {
             modalRef.current.showModal();
             modalRef.current.scrollIntoView({ behavior: "smooth" });
@@ -80,7 +86,7 @@ export default function Project() {
     };
 
     const closeModal = () => {
-        document.body.classList.remove("no-scroll"); // Réactive le scroll
+        document.body.classList.remove("no-scroll");
         if (modalRef.current) {
             modalRef.current.close();
         }
@@ -100,7 +106,7 @@ export default function Project() {
                         imgAlt={project.imgAlt}
                         title={project.title}
                         description={project.description}
-                        onClick={() => openModal(project)} // Pas besoin de passer l'événement
+                        onClick={() => openModal(project)}
                         technologies={project.technologies}
                     />
                 ))}
@@ -117,7 +123,7 @@ export default function Project() {
                 >
                     <form method="dialog">
                         <button
-                            type="button" // Spécifie que ce bouton n’est pas un bouton de soumission
+                            type="button"
                             className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
                             onClick={closeModal}
                         >
@@ -126,25 +132,38 @@ export default function Project() {
                     </form>
                     {selectedProject && (
                         <>
-                            <h3 className="text-lg font-bold">
-                                {selectedProject.title}
-                            </h3>
-                            <a
-                                href={selectedProject.siteUrl}
-                                className="relative group"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <span className="absolute inset-0 transition-opacity duration-300 rounded opacity-0 bg-slate-900 group-hover:opacity-50"></span>
-                                <span className="absolute inset-0 flex items-center justify-center font-bold text-white transition-opacity duration-300 opacity-0 font-nav group-hover:opacity-100">
-                                    {t("module-link")} <FiExternalLink />
-                                </span>
-                                <img
-                                    src={selectedProject.imgSrc}
-                                    alt={selectedProject.imgAlt}
-                                    className="w-full h-auto rounded"
-                                />
-                            </a>
+                            <div className="flex items-center gap-4">
+                                <h3 className="text-2xl font-bold">
+                                    {selectedProject.title}
+                                </h3>
+                                <a
+                                    href={selectedProject.githubUrl}
+                                    className="flex items-center gap-2 text-black hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FaGithub className="text-2xl" />
+                                </a>
+                            </div>
+
+                            <div className="flex flex-col items-center gap-4 py-4">
+                                <a
+                                    href={selectedProject.siteUrl}
+                                    className="relative group"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <span className="absolute inset-0 transition-opacity duration-300 rounded opacity-0 bg-slate-900 group-hover:opacity-50"></span>
+                                    <span className="absolute inset-0 flex items-center justify-center font-bold text-white transition-opacity duration-300 opacity-0 font-nav group-hover:opacity-100">
+                                        {t("module-link")} <FiExternalLink />
+                                    </span>
+                                    <img
+                                        src={selectedProject.imgSrc}
+                                        alt={selectedProject.imgAlt}
+                                        className="w-full h-auto rounded"
+                                    />
+                                </a>
+                            </div>
                             <p className="py-4">
                                 {selectedProject.moduleDescription}
                             </p>
