@@ -52,8 +52,8 @@ export default function Footer() {
                     <ThemeSwitch />
                 </div>
             </footer>
-            <div className="flex items-center justify-center text-white bg-black">
-                <p className="text-sm text-gray-500">
+            <div className="flex items-center justify-center bg-black">
+                <p className="text-sm text-gray-200">
                     Benjamin Verlaine - © {new Date().getFullYear()} - version
                     1.0.0 -{" "}
                     <a
