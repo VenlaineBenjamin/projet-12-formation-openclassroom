@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import myPhoto from "../images/moi-au-bord-du-lac.webp";
-
 export default function About() {
     const { t } = useTranslation();
 

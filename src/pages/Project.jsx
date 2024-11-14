@@ -108,7 +108,7 @@ export default function Project() {
             <dialog
                 ref={modalRef}
                 id="project_modal"
-                className="fixed w-screen modal"
+                className="fixed w-full modal"
                 onClick={closeModal}
             >
                 <div

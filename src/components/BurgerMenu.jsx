@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import pdfCV from "../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf";
+import pdfCV from "../../public/C.V.verlaine-benjamin-verlaine-développeur-web.pdf?url";
 
 export default function BurgerMenu() {
     const { t } = useTranslation();
