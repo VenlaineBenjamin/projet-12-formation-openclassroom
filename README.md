@@ -6,19 +6,21 @@ Projet 12 de ma formation d'intégrateur web sur OpenClassroom, qui a pour but d
 
 ## Objectifs
 
--   Mettre en avant mes compétences en HTML, CSS et JavaScript.
+-   Mettre en avant mes compétences en HTML, CSS, TailwindCSS, JavaScript et React.
 -   Créer une interface utilisateur responsive et esthétique.
 -   Intégrer des projets réalisés durant ma formation et mes expériences personnelles.
 -   Offrir une navigation fluide et intuitive pour les visiteurs.
 
 ## Technologies utilisées
 
--   **HTML** : Structure de base du site.
--   **CSS** : Mise en forme et design.
+-   **Vite.js** : Outil de développement front-end
 -   **JavaScript** : Interactivité et dynamisme.
+-   **React-icons** : Collection complète d'icone.
 -   **Tailwind CSS** (si utilisé) : Framework CSS pour un design rapide et responsive.
 -   **React** : Bibliothèque JavaScript pour construire des interfaces utilisateur.
 -   **React Router** : Gestion de la navigation entre les différentes pages de l'application.
+-   **React-i18next** : Utiliser pour changer la langue du site web.
+-   **Emailjs** : Gestion d'envoie d'email.
 
 ## Installation
 
