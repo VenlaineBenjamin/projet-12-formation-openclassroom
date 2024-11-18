@@ -2,6 +2,9 @@ import emailjs from "emailjs-com";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+// Fonction utilitaire pour valider un email
+const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
 export default function Contact() {
     const { t } = useTranslation();
     const [formData, setFormData] = useState({
@@ -14,7 +17,8 @@ export default function Contact() {
     const [isSuccess, setIsSuccess] = useState(false);
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (e) => {
@@ -23,9 +27,8 @@ export default function Contact() {
         setStatusMessage("");
         setIsSuccess(false);
 
-        // Validation du format de l'email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
+        // Validation de l'email
+        if (!isEmailValid(formData.email)) {
             setStatusMessage(t("form-invalid-email"));
             setIsSuccess(false);
             setIsSending(false);
@@ -71,7 +74,7 @@ export default function Contact() {
                 className="w-full max-w-lg p-8 rounded-lg xl:shadow-lg bg-base-100"
             >
                 <div className="mb-4 form-control">
-                    <label className="flex items-center gap-2 input input-bordered bg-base-200">
+                    <label htmlFor="name" className="flex items-center gap-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -82,18 +85,19 @@ export default function Contact() {
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                         </svg>
                         <input
+                            id="name"
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="grow input-bordered"
+                            className="grow input input-bordered bg-base-200"
                             placeholder={t("form-name")}
                         />
                     </label>
                 </div>
                 <div className="mb-4 form-control">
-                    <label className="flex items-center gap-2 input input-bordered bg-base-200">
+                    <label htmlFor="email" className="flex items-center gap-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -105,12 +109,17 @@ export default function Contact() {
                             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                         </svg>
                         <input
+                            id="email"
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="grow input-bordered "
+                            className={`grow input input-bordered bg-base-200 focus:outline-none ${
+                                isEmailValid(formData.email)
+                                    ? "focus:ring-2 focus:ring-green-500"
+                                    : "focus:ring-2 focus:ring-red-500"
+                            }`}
                             placeholder={t("form-email")}
                         />
                     </label>
@@ -132,7 +141,7 @@ export default function Contact() {
                     disabled={isSending}
                 >
                     {isSending ? (
-                        <span className="loading loading-bars loading-md"></span> // Assurez-vous de styliser le loader
+                        <span className="loading loading-bars loading-md"></span>
                     ) : (
                         t("form-submit")
                     )}
