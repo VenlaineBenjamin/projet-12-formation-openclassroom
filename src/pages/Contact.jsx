@@ -117,8 +117,8 @@ export default function Contact() {
                             required
                             className={`grow input input-bordered bg-base-200 focus:outline-none ${
                                 isEmailValid(formData.email)
-                                    ? "focus:ring-2 focus:ring-green-500"
-                                    : "focus:ring-2 focus:ring-red-500"
+                                    ? "focus:ring-2 focus:ring-green-500 ring-offset-2"
+                                    : "focus:ring-2 focus:ring-red-500 ring-offset-2"
                             }`}
                             placeholder={t("form-email")}
                         />
