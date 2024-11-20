@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrDocumentPdf } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
-import pdfCV from "../../public/Mon-nouveau-CV.pdf";
+import pdfCV from "../../public/Mon-nouveau-CV.pdf?url";
 
 export default function BurgerMenu() {
     const { t } = useTranslation();
 
     const navLinkClass = ({ isActive }) =>
-        `btn btn-neutral uppercase w-1/3 text-center ${
+        `btn btn-neutral uppercase text-center ${
             isActive
                 ? "bg-complementary font-bold hover:bg-complementary"
                 : "hover:bg-complementary/25"
@@ -56,6 +57,7 @@ export default function BurgerMenu() {
                     onClick={() =>
                         document.getElementById("my_modal_3").showModal()
                     }
+                    aria-label="Menu"
                 >
                     <GiHamburgerMenu size={36} />
                 </button>
@@ -64,30 +66,32 @@ export default function BurgerMenu() {
             {/* Modale */}
             <dialog
                 id="my_modal_3"
-                className="modal z-0s"
+                className="modal"
                 onClick={(e) => {
                     if (e.target === e.currentTarget) handleModalClose();
                 }}
             >
-                <div className="flex flex-col items-center justify-center modal-box">
+                <div className="flex flex-col items-center justify-center pt-12 modal-box">
                     <form
                         method="dialog"
-                        className="flex flex-col items-center justify-center gap-4"
+                        className="flex flex-col items-center justify-center w-full gap-4"
                     >
                         {/* Bouton pour fermer la modale */}
                         <button
                             className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
-                            onClick={handleModalClose} // Utilisation de handleModalClose
+                            onClick={handleModalClose}
                         >
                             ✕
                         </button>
-                        {/* Liens du menu avec l'effet isActive */}
+                        {/* Liens du menu */}
                         {navLinks.map(({ path, label }) => (
                             <NavLink
                                 key={path}
                                 to={path}
                                 className={({ isActive }) =>
-                                    `${navLinkClass({ isActive })} w-64`
+                                    `${navLinkClass({
+                                        isActive,
+                                    })} flex items-center justify-center w-full max-w-xs`
                                 }
                                 onClick={handleModalClose}
                             >
@@ -97,9 +101,10 @@ export default function BurgerMenu() {
                         <a
                             href={pdfCV}
                             download="cv-benjamin-verlaine"
-                            className="flex flex-row items-center justify-center w-64 gap-2 text-center uppercase btn btn-neutral hover:bg-complementary/25"
+                            className="flex items-center justify-center w-full max-w-xs text-center uppercase btn btn-neutral hover:bg-complementary/25"
                         >
-                            Curriculum Vitae
+                            <span>Curriculum Vitae</span>
+                            <GrDocumentPdf className="ml-2" />
                         </a>
                     </form>
                 </div>
@@ -107,21 +112,18 @@ export default function BurgerMenu() {
 
             {/* Menu desktop */}
             <nav className="justify-end hidden gap-4 mr-4 xl:flex font-nav">
-                <NavLink to="/project" className={navLinkClass}>
-                    {t("menu-project")}
-                </NavLink>
-                <NavLink to="/skills" className={navLinkClass}>
-                    {t("menu-skills")}
-                </NavLink>
-                <NavLink to="/contact" className={navLinkClass}>
-                    {t("menu-contact")}
-                </NavLink>
+                {navLinks.map(({ path, label }) => (
+                    <NavLink key={path} to={path} className={navLinkClass}>
+                        {label}
+                    </NavLink>
+                ))}
                 <a
                     href={pdfCV}
                     download="cv-benjamin-verlaine"
-                    className="flex items-center justify-center w-1/3 text-center uppercase btn btn-neutral hover:bg-complementary/25"
+                    className="flex items-center justify-center w-64 text-center uppercase btn btn-neutral hover:bg-complementary/25"
                 >
-                    Curriculum Vitae
+                    <span>Curriculum Vitae</span>
+                    <GrDocumentPdf className="ml-2" />
                 </a>
             </nav>
         </div>
