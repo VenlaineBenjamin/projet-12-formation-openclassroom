@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://verlaine-benjamin-portfolio.com/sitemap.xml
