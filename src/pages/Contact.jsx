@@ -1,6 +1,8 @@
 import emailjs from "emailjs-com";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaUser } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 // Fonction utilitaire pour valider un email
 const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -71,59 +73,43 @@ export default function Contact() {
             </h2>
             <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-lg p-8 rounded-lg xl:shadow-lg bg-base-100"
+                className="w-full max-w-lg p-8 rounded-lg xl:shadow-lg bg-base-100 form-control"
             >
-                <div className="mb-4 form-control">
-                    <label htmlFor="name" className="flex items-center gap-2">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            fill="currentColor"
-                            className="w-4 h-4 opacity-70"
-                            aria-label={t("form-icon-name")}
-                        >
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-                        </svg>
-                        <input
-                            id="name"
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            className="grow input input-bordered bg-base-200"
-                            placeholder={t("form-name")}
-                        />
-                    </label>
+                {/* Champ Nom */}
+                <div className="relative mb-4 form-control">
+                    <FaUser className="absolute text-gray-500 transform -translate-y-1/2 top-1/2 left-3" />
+                    <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="pl-10 input input-bordered bg-base-200"
+                        placeholder={t("form-name")}
+                    />
                 </div>
-                <div className="mb-4 form-control">
-                    <label htmlFor="email" className="flex items-center gap-2">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            fill="currentColor"
-                            className="w-4 h-4 opacity-70"
-                            aria-label={t("form-icon-email")}
-                        >
-                            <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
-                            <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
-                        </svg>
-                        <input
-                            id="email"
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className={`grow input input-bordered bg-base-200 focus:outline-none ${
-                                isEmailValid(formData.email)
-                                    ? "focus:ring-2 focus:ring-green-500 ring-offset-2"
-                                    : "focus:ring-2 focus:ring-red-500 ring-offset-2"
-                            }`}
-                            placeholder={t("form-email")}
-                        />
-                    </label>
+
+                {/* Champ Email */}
+                <div className="relative mb-4 form-control">
+                    <IoMdMail className="absolute text-gray-500 transform -translate-y-1/2 top-1/2 left-3" />
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className={`input input-bordered bg-base-200 pl-10 focus:outline-none ${
+                            isEmailValid(formData.email)
+                                ? "focus:ring-2 focus:ring-green-500 ring-offset-2"
+                                : "focus:ring-2 focus:ring-red-500 ring-offset-2"
+                        }`}
+                        placeholder={t("form-email")}
+                    />
                 </div>
+
+                {/* Champ Message */}
                 <div className="mb-4 form-control">
                     <textarea
                         id="message"
@@ -135,6 +121,8 @@ export default function Contact() {
                         placeholder={t("form-message")}
                     ></textarea>
                 </div>
+
+                {/* Bouton Soumettre */}
                 <button
                     type="submit"
                     className="w-full mt-4 btn btn-primary"
@@ -146,6 +134,8 @@ export default function Contact() {
                         t("form-submit")
                     )}
                 </button>
+
+                {/* Message de statut */}
                 {statusMessage && (
                     <p
                         className={`mt-4 text-lg text-center ${

@@ -101,7 +101,7 @@ export default function BurgerMenu() {
                         <a
                             href={pdfCV}
                             download="cv-benjamin-verlaine"
-                            className="flex items-center justify-center w-full max-w-xs text-center uppercase btn btn-neutral hover:bg-complementary/25"
+                            className="flex items-center justify-center w-full max-w-xs px-4 py-2 text-xl font-medium text-center text-white uppercase rounded btn bg-gradient-to-r from-blue-500 to-red-500 gradient element-to-rotate"
                         >
                             <span>Curriculum Vitae</span>
                             <GrDocumentPdf className="ml-2" />
@@ -120,7 +120,7 @@ export default function BurgerMenu() {
                 <a
                     href={pdfCV}
                     download="cv-benjamin-verlaine"
-                    className="flex items-center justify-center w-64 text-center uppercase btn btn-neutral hover:bg-complementary/25"
+                    className="flex items-center justify-center w-64 px-4 py-2 text-xl font-medium text-center text-white uppercase transition-transform rounded btn bg-gradient-to-r from-orange-700 via-yellow-500 to-green-400 gradient element-to-rotate hover:scale-105"
                 >
                     <span>Curriculum Vitae</span>
                     <GrDocumentPdf className="ml-2" />

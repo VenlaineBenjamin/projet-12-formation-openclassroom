@@ -20,6 +20,19 @@ export default {
                 white: "0 4px 6px rgba(255, 255, 255, 0.3)", // Ombre blanche pour le mode sombre
                 light: "0 4px 6px rgba(0, 0, 0, 0.5)", // Ombre légère pour le mode clair
             },
+            keyframes: {
+                animatedgradient: {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                    "100%": { backgroundPosition: "0% 50%" },
+                },
+            },
+            backgroundSize: {
+                "300%": "300%",
+            },
+            animation: {
+                gradient: "animatedgradient 6s ease infinite alternate",
+            },
         },
     },
     daisyui: {

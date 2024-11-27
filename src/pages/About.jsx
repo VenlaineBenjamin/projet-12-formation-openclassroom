@@ -12,7 +12,7 @@ export default function About() {
             <img
                 src={myPhoto}
                 alt={t("alt-photo-about")}
-                className="object-cover rounded shadow-md w-36 h-36 xl:h-72 xl:w-72"
+                className="object-cover rounded shadow-md pointer-events-none w-36 h-36 xl:h-72 xl:w-72"
             />
             <p className="flex flex-row w-5/6 text-center xl:w-3/4 xl:text-2xl text-md font-body">
                 <span className="text-xl xl:text-3xl">

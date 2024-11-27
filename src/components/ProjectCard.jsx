@@ -19,13 +19,13 @@ export default function ProjectCard({
 
     return (
         <div
-            className="p-4 transition-transform transform rounded-lg shadow-lg cursor-pointer hover:scale-105"
+            className="p-4 transition-transform transform rounded-lg shadow-lg cursor-pointer shadow-gray-400 hover:scale-105"
             onClick={onClick}
         >
             <img
                 src={imgSrc}
                 alt={imgAlt}
-                className="object-cover w-full rounded-t-lg h-52"
+                className="object-cover w-full rounded-t-lg pointer-events-none h-52"
             />
             <h3 className="mt-2 text-lg font-semibold">{title}</h3>
             <p className="text-sm text-gray-600">{description}</p>
