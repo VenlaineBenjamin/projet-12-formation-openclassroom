@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GrDocumentPdf } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
-import pdfCV from "../../public/Mon-nouveau-CV.pdf?url";
+import PdfDownloadButton from "./PdfDownload";
 
+// Import du PDF
+
+// Composant pour le bouton de téléchargement du PDF
+
+// Composant principal du menu
 export default function BurgerMenu() {
     const { t } = useTranslation();
 
@@ -26,7 +30,7 @@ export default function BurgerMenu() {
         { path: "/contact", label: t("menu-contact") },
     ];
 
-    // Désactive le défilement lorsque la modale est ouverte
+    // Désactiver le défilement lorsque la modale est ouverte
     useEffect(() => {
         const modal = document.getElementById("my_modal_3");
 
@@ -98,14 +102,8 @@ export default function BurgerMenu() {
                                 {label}
                             </NavLink>
                         ))}
-                        <a
-                            href={pdfCV}
-                            download="cv-benjamin-verlaine"
-                            className="flex items-center justify-center w-full max-w-xs px-4 py-2 text-xl font-medium text-center text-white uppercase rounded btn bg-gradient-to-r from-blue-500 to-red-500 gradient element-to-rotate"
-                        >
-                            <span>Curriculum Vitae</span>
-                            <GrDocumentPdf className="ml-2" />
-                        </a>
+                        {/* Bouton de téléchargement du CV */}
+                        <PdfDownloadButton />
                     </form>
                 </div>
             </dialog>
@@ -117,14 +115,8 @@ export default function BurgerMenu() {
                         {label}
                     </NavLink>
                 ))}
-                <a
-                    href={pdfCV}
-                    download="cv-benjamin-verlaine"
-                    className="flex items-center justify-center w-64 px-4 py-2 text-xl font-medium text-center text-white uppercase transition-transform rounded btn bg-gradient-to-r from-orange-700 via-yellow-500 to-green-400 gradient element-to-rotate hover:scale-105"
-                >
-                    <span>Curriculum Vitae</span>
-                    <GrDocumentPdf className="ml-2" />
-                </a>
+                {/* Bouton de téléchargement du CV */}
+                <PdfDownloadButton />
             </nav>
         </div>
     );
