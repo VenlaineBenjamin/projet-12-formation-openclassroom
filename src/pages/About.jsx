@@ -1,28 +1,36 @@
 import { useTranslation } from "react-i18next";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import myPhoto from "../images/moi-au-bord-du-lac.webp";
+
 export default function About() {
     const { t } = useTranslation();
 
     return (
-        <main className="flex flex-col items-center justify-center gap-4 my-10 xl:gap-8 xl:my-20">
-            <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
+        <main className="flex flex-col items-center justify-center gap-6 my-10 xl:gap-10 xl:my-20">
+            {/* Titre de bienvenue */}
+            <h2 className="text-xl font-bold text-center xl:text-4xl font-title text-complementary">
                 {t("welcome")}
             </h2>
+
+            {/* Image avec une meilleure gestion des styles */}
             <img
                 src={myPhoto}
                 alt={t("alt-photo-about")}
-                className="object-cover rounded shadow-md pointer-events-none w-36 h-36 xl:h-72 xl:w-72"
+                className="object-cover border-4 rounded-md shadow-lg pointer-events-none avatar w-36 h-36 xl:h-72 xl:w-72 border-complementary"
             />
-            <p className="flex flex-row w-5/6 text-center xl:w-3/4 xl:text-2xl text-md font-body">
-                <span className="text-xl xl:text-3xl">
-                    <FaQuoteLeft />
-                </span>
-                {t("presentation")}
-                <span className="self-end text-xl xl:text-3xl">
-                    <FaQuoteRight />
-                </span>
-            </p>
+
+            {/* Citation avec icônes et texte */}
+            <blockquote className="relative w-5/6 text-center xl:w-3/4 xl:text-2xl text-md font-body">
+                <FaQuoteLeft
+                    className="absolute text-3xl text-complementary -top-4 left-4 xl:text-4xl"
+                    aria-hidden="true"
+                />
+                <p className="px-6 xl:px-10">{t("presentation")}</p>
+                <FaQuoteRight
+                    className="absolute text-3xl text-complementary -bottom-4 right-4 xl:text-4xl"
+                    aria-hidden="true"
+                />
+            </blockquote>
         </main>
     );
 }

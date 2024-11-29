@@ -45,9 +45,11 @@ export default function Contact() {
                 "iVpu2L8mWJtcBTuZM"
             );
             console.log("Response:", response);
-            setStatusMessage(t("form-message-sent"));
+            setStatusMessage(t(""));
             setIsSuccess(true);
             setFormData({ name: "", email: "", message: "" });
+            // Scroll to top of form after submission
+            window.scrollTo(0, 0);
         } catch (error) {
             console.error("Erreur lors de l'envoi :", error);
             setStatusMessage(t("form-message-error"));
@@ -74,6 +76,7 @@ export default function Contact() {
             <form
                 onSubmit={handleSubmit}
                 className="w-full max-w-lg p-8 rounded-lg xl:shadow-lg bg-base-100 form-control"
+                aria-labelledby="contact-form-title"
             >
                 {/* Champ Nom */}
                 <div className="relative mb-4 form-control">
@@ -87,6 +90,7 @@ export default function Contact() {
                         required
                         className="pl-10 input input-bordered bg-base-200"
                         placeholder={t("form-name")}
+                        aria-label={t("form-name")}
                     />
                 </div>
 
@@ -106,6 +110,7 @@ export default function Contact() {
                                 : "focus:ring-2 focus:ring-red-500 ring-offset-2"
                         }`}
                         placeholder={t("form-email")}
+                        aria-label={t("form-email")}
                     />
                 </div>
 
@@ -119,6 +124,7 @@ export default function Contact() {
                         required
                         className="textarea textarea-bordered bg-base-200"
                         placeholder={t("form-message")}
+                        aria-label={t("form-message")}
                     ></textarea>
                 </div>
 
@@ -127,6 +133,7 @@ export default function Contact() {
                     type="submit"
                     className="w-full mt-4 btn btn-primary"
                     disabled={isSending}
+                    aria-live="polite"
                 >
                     {isSending ? (
                         <span className="loading loading-bars loading-md"></span>
@@ -141,6 +148,7 @@ export default function Contact() {
                         className={`mt-4 text-lg text-center ${
                             isSuccess ? "text-green-500" : "text-red-500"
                         }`}
+                        role="alert"
                     >
                         {statusMessage}
                     </p>

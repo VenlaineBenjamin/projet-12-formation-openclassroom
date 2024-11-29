@@ -4,14 +4,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import PdfDownloadButton from "./PdfDownload";
 
-// Import du PDF
-
-// Composant pour le bouton de téléchargement du PDF
-
-// Composant principal du menu
+// BurgerMenu component: handles responsive navigation with a modal for mobile screens
 export default function BurgerMenu() {
     const { t } = useTranslation();
 
+    // Utility function to apply dynamic classes to navigation links
     const navLinkClass = ({ isActive }) =>
         `btn btn-neutral uppercase text-center ${
             isActive
@@ -19,18 +16,19 @@ export default function BurgerMenu() {
                 : "hover:bg-complementary/25"
         }`;
 
-    // Fonction de fermeture de la modale
+    // Function to close the modal
     const handleModalClose = () => {
         document.getElementById("my_modal_3").close();
     };
 
+    // Define navigation links
     const navLinks = [
         { path: "/project", label: t("menu-project") },
         { path: "/skills", label: t("menu-skills") },
         { path: "/contact", label: t("menu-contact") },
     ];
 
-    // Désactiver le défilement lorsque la modale est ouverte
+    // Prevent body scrolling when the modal is open
     useEffect(() => {
         const modal = document.getElementById("my_modal_3");
 
@@ -54,40 +52,43 @@ export default function BurgerMenu() {
 
     return (
         <div className="my-auto">
+            {/* Mobile Menu Button */}
             <div className="lg:hidden">
-                {/* Bouton pour ouvrir la modale */}
                 <button
                     className="fixed text-white top-8 right-8"
                     onClick={() =>
                         document.getElementById("my_modal_3").showModal()
                     }
-                    aria-label="Menu"
+                    aria-label={t("aria-menu-open")} // Accessible label for screen readers
                 >
                     <GiHamburgerMenu size={36} />
                 </button>
             </div>
 
-            {/* Modale */}
+            {/* Mobile Modal */}
             <dialog
                 id="my_modal_3"
                 className="modal"
                 onClick={(e) => {
                     if (e.target === e.currentTarget) handleModalClose();
                 }}
+                aria-label={t("aria-menu-modal")} // Accessible label for the modal
             >
                 <div className="flex flex-col items-center justify-center pt-12 modal-box">
                     <form
                         method="dialog"
                         className="flex flex-col items-center justify-center w-full gap-4"
                     >
-                        {/* Bouton pour fermer la modale */}
+                        {/* Close Button */}
                         <button
                             className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
                             onClick={handleModalClose}
+                            aria-label={t("aria-menu-close")} // Accessible label
                         >
                             ✕
                         </button>
-                        {/* Liens du menu */}
+
+                        {/* Navigation Links */}
                         {navLinks.map(({ path, label }) => (
                             <NavLink
                                 key={path}
@@ -102,20 +103,22 @@ export default function BurgerMenu() {
                                 {label}
                             </NavLink>
                         ))}
-                        {/* Bouton de téléchargement du CV */}
+
+                        {/* PDF Download Button */}
                         <PdfDownloadButton />
                     </form>
                 </div>
             </dialog>
 
-            {/* Menu desktop */}
+            {/* Desktop Navigation */}
             <nav className="justify-end hidden gap-4 mr-4 xl:flex font-nav">
                 {navLinks.map(({ path, label }) => (
                     <NavLink key={path} to={path} className={navLinkClass}>
                         {label}
                     </NavLink>
                 ))}
-                {/* Bouton de téléchargement du CV */}
+
+                {/* PDF Download Button */}
                 <PdfDownloadButton />
             </nav>
         </div>

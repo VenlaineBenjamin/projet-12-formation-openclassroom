@@ -25,6 +25,7 @@
     "form-submit": "Envoyer",
     "form-invalid-email": "Adresse email invalide",
     "form-message-error": "Erreur lors de l'envoi du message",
+    "form-message-sent": "Message envoyer !",
     "card-booki": "page d'accueil d'une agence de voyage.",
     "card-kasa": "Application web de location immobilière.",
     "card-nina": "Site web vitrine d'une photographe.",
@@ -36,5 +37,9 @@
     "module-food": "Ohmyfood est un site web développé avec HTML et SASS qui offre une expérience utilisateur intuitive pour la découverte et la réservation de restaurants parisiens, notamment dans le quartier de Belleville. L'interface, construite avec HTML, présente de manière claire et organisée une sélection de restaurants soigneusement choisis. Le design soigné et responsif, réalisé grâce à SASS, met en valeur les visuels des plats et crée une ambiance agréable pour l'utilisateur. Les fonctionnalités de personnalisation du menu sont implémentées à l'aide d'HTML et de JavaScript, permettant aux utilisateurs de composer leur repas idéal avant de réserver.",
     "skill-tools": "Outils de développement",
     "skill-frameworks": "Frameworks & bibliothèques",
-    "skill-frontend": "Interface utilisateur"
+    "skill-frontend": "Interface utilisateur",
+    "aria-menu-open": "Open navigation menu",
+    "aria-menu-close": "Close navigation menu",
+    "aria-menu-modal": "Navigation menu",
+    "aria-btn-pdf": "élécharger le Curriculum Vitae (format PDF, environ 200 Ko)"
 }

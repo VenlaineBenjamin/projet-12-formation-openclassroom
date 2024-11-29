@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"; // Importing translation hook for localization
 import { FaCss3Alt, FaGitAlt, FaHtml5, FaJs } from "react-icons/fa";
 import {
     SiFigma,
@@ -12,8 +12,10 @@ import {
 } from "react-icons/si";
 
 export default function About() {
+    // Extracting the translation function for multi-language support
     const { t } = useTranslation();
 
+    // Categorizing skills into frontend, frameworks, and tools
     const categorizedSkills = [
         {
             category: t("skill-frontend"),
@@ -93,39 +95,48 @@ export default function About() {
     ];
 
     return (
-        <main className="flex flex-col items-center justify-center gap-4 my-10 xl:gap-8 xl:mt-20">
-            <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
-                {t("welcome-skills")}
-            </h2>
-            {categorizedSkills.map((category) => (
-                <div
-                    key={category.category}
-                    className="w-full md:w-1/2 xl:w-1/3"
-                >
-                    <h3 className="my-4 text-lg font-semibold xl:text-2xl text-primary">
-                        {t(category.category)}
-                    </h3>
-                    <div className="flex flex-wrap justify-center gap-4 p-4 rounded-lg bg-base-200 md:flex-row">
-                        {category.skills.map((skill) => (
-                            <div
-                                key={skill.name}
-                                className="tooltip"
-                                data-tip={skill.name}
-                                aria-label={skill.name}
-                            >
+        <section className="my-10 xl:mt-20">
+            {" "}
+            {/* Main container for the About section */}
+            <header className="flex flex-col items-center justify-center gap-4 xl:gap-8">
+                <h2 className="text-xl font-bold xl:text-4xl text-start font-title text-complementary">
+                    {t("welcome-skills")}
+                </h2>
+            </header>
+            <div className="flex flex-col items-center">
+                {categorizedSkills.map((category) => (
+                    <article
+                        key={category.category}
+                        className="w-full md:w-1/2 xl:w-1/3 "
+                    >
+                        {" "}
+                        {/* Each skill category */}
+                        <h3 className="mx-4 my-4 text-lg font-semibold md:m-0 xl:text-2xl text-primary">
+                            {t(category.category)}{" "}
+                            {/* Displaying category name */}
+                        </h3>
+                        <div className="flex flex-wrap justify-center gap-4 p-4 mx-4 rounded-lg md:m-0 bg-base-200 md:flex-row">
+                            {category.skills.map((skill) => (
                                 <div
-                                    className={`flex flex-col items-center justify-center gap-2 p-2 text-5xl text-center text-white transition-transform transform border rounded-sm hover:translate-y-1 hover:scale-110`}
-                                    style={{
-                                        backgroundColor: skill.color,
-                                    }}
+                                    key={skill.name}
+                                    className="tooltip" // Tooltip for skill names
+                                    data-tip={skill.name}
+                                    aria-label={skill.name} // Adding aria-label for better accessibility
                                 >
-                                    {skill.icon}
+                                    <div
+                                        className={`flex flex-col items-center justify-center gap-2 p-2 text-5xl text-center text-white transition-transform transform border rounded-sm hover:translate-y-1 hover:scale-110`}
+                                        style={{
+                                            backgroundColor: skill.color, // Dynamic background color for each skill
+                                        }}
+                                    >
+                                        {skill.icon} {/* Skill icon */}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))}
-        </main>
+                            ))}
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </section>
     );
 }

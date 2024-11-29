@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { GrDocumentPdf } from "react-icons/gr";
 import pdfCV from "../../public/Mon-nouveau-CV.pdf?url";
 
 export default function PdfDownloadButton() {
+    const { t } = useTranslation();
     const [error, setError] = useState(null);
 
     const handleDownload = () => {
@@ -24,7 +26,7 @@ export default function PdfDownloadButton() {
                 }}
                 aria-label="Télécharger le Curriculum Vitae (format PDF)"
                 aria-describedby="cv-description"
-                title="Télécharger le Curriculum Vitae (format PDF, 186 ko)"
+                title={t("aria-btn-pdf")}
                 className="flex items-center justify-center w-64 px-4 py-2 text-xl font-medium text-center text-white uppercase transition-transform rounded btn bg-gradient-to-r from-orange-700 via-yellow-500 to-green-400 gradient element-to-rotate hover:scale-105 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-black"
             >
                 <span id="cv-description" hidden>

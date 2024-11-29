@@ -3,26 +3,44 @@ import { Link } from "react-router-dom";
 import BurgerMenu from "../components/BurgerMenu";
 import myImage from "../images/ma-photo1.webp";
 
+// Header component with navigation and branding
 export default function Header() {
-    const { t } = useTranslation();
+    const { t } = useTranslation(); // Hook for i18n translations
 
     return (
-        <header className="flex justify-between drop-shadow-xl z-[100]">
-            <Link to="/" className="flex">
+        <header className="flex justify-between items-center drop-shadow-xl z-[100]">
+            {/* Link to redirect to the homepage */}
+            <Link to="/" className="flex items-center">
+                {/* Personal image */}
                 <img
                     src={myImage}
-                    alt="photo de benjamin verlaine"
+                    alt={t("alt-photo")} // Accessible alternative text
                     className="h-24 pointer-events-none xl:h-32"
                 />
+
+                {/* Branding: Name and title */}
                 <div className="flex flex-col justify-center ml-4">
-                    <h1 className="pb-1 text-xl font-bold text-transparent xl:text-6xl font-title bg-gradient-to-r from-orange-700 via-yellow-500 to-green-400 bg-clip-text animate-gradient">
+                    {/* Name with animated gradient */}
+                    <h1
+                        className="pb-1 text-xl font-bold text-transparent xl:text-6xl font-title bg-gradient-to-r from-orange-700 via-yellow-500 to-green-400 bg-clip-text animate-gradient"
+                        role="heading"
+                        aria-level="1"
+                    >
                         {t("my-name")}
                     </h1>
-                    <h2 className="text-xs xl:text-xl font-title">
+
+                    {/* Subtitle / profession */}
+                    <h2
+                        className="text-xs xl:text-xl font-title"
+                        role="heading"
+                        aria-level="2"
+                    >
                         {t("title")}
                     </h2>
                 </div>
             </Link>
+
+            {/* Mobile navigation menu */}
             <BurgerMenu />
         </header>
     );
