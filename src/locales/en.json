@@ -41,5 +41,6 @@
     "aria-menu-open": "Open navigation menu",
     "aria-menu-close": "Close navigation menu",
     "aria-menu-modal": "Navigation menu",
-    "aria-btn-pdf": "download Curriculum Vitae (PDF format, about 200 Ko)"
+    "aria-btn-pdf": "download Curriculum Vitae (PDF format, about 200 Ko)",
+    "link-github": "Link to GitHub repository of the portfolio"
 }

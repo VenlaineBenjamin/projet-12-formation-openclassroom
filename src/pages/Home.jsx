@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div className="flex flex-col h-screen border focus:outline-none">
             {/* Header section: occupies fixed height, responsive styles for larger screens */}
-            <div className="h-24 bg-gradient-to-r from-blue-400 to-blue-800 xl:h-32">
+            <div className="h-24 border-b-4 bg-gradient-to-r from-blue-400 to-blue-800 xl:h-32 border-b-complementary">
                 <Header />
             </div>
 
@@ -17,7 +17,7 @@ export default function Home() {
             </main>
 
             {/* Footer section: occupies fixed height, responsive styles for larger screens */}
-            <footer className="h-24 bg-gradient-to-t from-slate-800 to-slate-700 xl:h-32">
+            <footer className="h-24 border-t-4 bg-gradient-to-t from-slate-800 to-slate-700 xl:h-32 border-t-complementary">
                 <Footer />
             </footer>
         </div>

@@ -63,7 +63,7 @@ export default function Footer() {
             <div className="flex items-center justify-center bg-black">
                 <p className="text-sm text-gray-200">
                     Benjamin Verlaine - © {new Date().getFullYear()} - version
-                    alpha 1.3.2 -{" "}
+                    alpha 1.3.3 -{" "}
                     <a
                         className="text-blue-500"
                         target="_blank"
@@ -71,7 +71,7 @@ export default function Footer() {
                         href="https://github.com/VenlaineBenjamin/projet-12-formation-openclassroom"
                         aria-label="Portfolio GitHub Repository"
                     >
-                        Link to GitHub repository of the portfolio
+                        {t("link-github")}
                     </a>
                 </p>
             </div>
