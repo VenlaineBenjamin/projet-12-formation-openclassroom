@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaCss3Alt, FaGithub, FaHtml5, FaJs, FaReact } from "react-icons/fa";
+import { FaCss3, FaGithub, FaHtml5, FaJs, FaReact } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { SiReactrouter, SiRedux, SiSass } from "react-icons/si";
 import ProjectCard from "../components/ProjectCard";
@@ -25,7 +25,7 @@ export default function Project() {
             moduleDescription: t("module-booki"),
             siteUrl: "https://booki-benjamin-verlaine.netlify.app/",
             technologies: [
-                { name: "CSS", icon: <FaCss3Alt />, color: "#2545DB" },
+                { name: "CSS", icon: <FaCss3 />, color: "#663399" },
                 { name: "HTML", icon: <FaHtml5 />, color: "#EC622C" },
             ],
         },

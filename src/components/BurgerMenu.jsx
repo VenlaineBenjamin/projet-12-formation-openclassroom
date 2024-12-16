@@ -105,7 +105,7 @@ export default function BurgerMenu() {
                         ))}
 
                         {/* PDF Download Button */}
-                        <PdfDownloadButton />
+                        <PdfDownloadButton className="w-full max-w-xs" />
                     </form>
                 </div>
             </dialog>

@@ -10,12 +10,12 @@ export default function ProjectCard({
 }) {
     // Technology colors map
     const technologyColors = {
-        React: "bg-[#66DBFB]",
-        JavaScript: "bg-[#F7E025]",
-        HTML: "bg-[#EC622C]",
-        CSS: "bg-[#2545DB]",
-        SASS: "bg-[#CC6699]",
-        Redux: "bg-[#764ABC]",
+        React: "bg-[#66DBFB] hover:bg-[#5FD3FF]",
+        JavaScript: "bg-[#F7E025] hover:bg-[#F6D700]",
+        HTML: "bg-[#EC622C] hover:bg-[#E15B00]",
+        CSS: "bg-[#663399] hover:bg-[#5C2F7A]",
+        SASS: "bg-[#CC6699] hover:bg-[#B35770]",
+        Redux: "bg-[#764ABC] hover:bg-[#6A3DAB]",
     };
 
     // Default color for unknown technologies

@@ -7,12 +7,13 @@ export default function PdfDownloadButton() {
     const { t } = useTranslation();
     const [error, setError] = useState(null);
 
-    const handleDownload = () => {
+    const handleDownload = (e) => {
         if (!pdfCV) {
             setError("Le fichier PDF est indisponible pour le moment.");
+            e.preventDefault(); // Prevent the download if no PDF
             return false;
         }
-        setError(null);
+        setError(null); // Reset error if file is available
         return true;
     };
 
@@ -21,10 +22,8 @@ export default function PdfDownloadButton() {
             <a
                 href={pdfCV}
                 download="cv-benjamin-verlaine"
-                onClick={(e) => {
-                    if (!handleDownload()) e.preventDefault();
-                }}
-                aria-label="Télécharger le Curriculum Vitae (format PDF)"
+                onClick={handleDownload}
+                aria-label={t("aria-btn-pdf")} // Accessible label for screen readers
                 aria-describedby="cv-description"
                 title={t("aria-btn-pdf")}
                 className="flex items-center justify-center w-64 px-4 py-2 text-xl font-medium text-center text-white uppercase transition-transform rounded btn bg-gradient-to-r from-orange-700 via-yellow-500 to-green-400 gradient element-to-rotate hover:scale-105 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-black"
@@ -36,8 +35,14 @@ export default function PdfDownloadButton() {
                 <span>Curriculum Vitae</span>
                 <GrDocumentPdf className="ml-2" size={20} aria-hidden="true" />
             </a>
+
+            {/* Display error message if the file is not available */}
             {error && (
-                <p className="mt-2 text-red-500" role="alert">
+                <p
+                    className="mt-2 text-red-500"
+                    role="alert"
+                    aria-live="assertive"
+                >
                     {error}
                 </p>
             )}
